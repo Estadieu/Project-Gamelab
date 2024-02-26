@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://TitleScreen/menu.gd" id="1_oi0p3"]
 [ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="1_xdjxl"]
-[ext_resource type="Texture2D" uid="uid://5lhppi7eicoi" path="res://img/Octobre-min.jpg" id="2_ke35y"]
+[ext_resource type="Texture2D" uid="uid://e3u22fb1egdf" path="res://img/nov.png" id="2_bhm6c"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="3_kwsdd"]
 
 [node name="Menu" type="Control"]
@@ -14,49 +14,50 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oi0p3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 673.0
-offset_bottom = 382.0
-color = Color(0.337255, 0.25098, 0.243137, 1)
-
-[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+[node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.95
-offset_bottom = 19.1
+offset_left = -3.0
+offset_top = -37.0
+offset_right = 66.0
+offset_bottom = 71.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ke35y")
-stretch_mode = 1
+texture = ExtResource("2_bhm6c")
+
+[node name="btn_play" parent="." instance=ExtResource("3_kwsdd")]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 216.0
+offset_right = 228.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(0.337255, 0.0980392, 0.0117647, 1)
+text = "Play"
+
+[node name="btn_exit" parent="." instance=ExtResource("3_kwsdd")]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 216.0
+offset_right = 490.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(0.337255, 0.0980392, 0.0117647, 1)
+text = "Exit"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 640.0
-offset_bottom = 100.0
+offset_left = 20.0
+offset_top = 122.0
+offset_right = 628.0
+offset_bottom = 232.0
+theme_override_colors/font_color = Color(0.337255, 0.0980392, 0.0117647, 1)
 theme_override_fonts/font = ExtResource("1_xdjxl")
 theme_override_font_sizes/font_size = 35
 text = "Nordic Resilience: A French Erasmus Journey"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="btn_play" parent="." instance=ExtResource("3_kwsdd")]
-layout_mode = 0
-offset_left = 280.0
-offset_top = 250.0
-offset_right = 360.0
-offset_bottom = 280.0
-text = "Play"
-
-[node name="btn_exit" parent="." instance=ExtResource("3_kwsdd")]
-layout_mode = 0
-offset_left = 280.0
-offset_top = 290.0
-offset_right = 360.0
-offset_bottom = 320.0
-text = "Exit"
 
 [connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]
 [connection signal="click_end" from="btn_exit" to="." method="_on_btn_exit_click_end"]
