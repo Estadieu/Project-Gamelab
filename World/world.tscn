@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://du6qbgqucaqov"]
+[gd_scene load_steps=24 format=3 uid="uid://du6qbgqucaqov"]
 
 [ext_resource type="Texture2D" uid="uid://b6umklllf2jsl" path="res://Textures/dirt_full_new.png" id="1_3v41d"]
+[ext_resource type="Script" path="res://World/world.gd" id="1_yrogg"]
 [ext_resource type="PackedScene" uid="uid://dncgepmkc4jf4" path="res://Player/player.tscn" id="2_40uwv"]
 [ext_resource type="PackedScene" uid="uid://ba2claihwes2y" path="res://Utility/enemy_spawner.tscn" id="3_p01g4"]
 [ext_resource type="PackedScene" uid="uid://gvm5jcbbgwdv" path="res://Enemy/enemy_kobold_weak.tscn" id="4_ee8bm"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://btf7clk4jja87" path="res://Enemy/enemy_super.tscn" id="9_xs42h"]
 [ext_resource type="AudioStream" uid="uid://bbufl4r1ou1rw" path="res://Audio/Music/battleThemeA.mp3" id="10_rk3we"]
 [ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="11_ovtx6"]
+[ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="13_oaqtv"]
+[ext_resource type="Script" path="res://World/PauseMenu.gd" id="13_qy82i"]
 
 [sub_resource type="Resource" id="Resource_03m25"]
 script = ExtResource("5_jj7s8")
@@ -85,6 +88,8 @@ enemy_num = 1
 enemy_spawn_delay = 0
 
 [node name="World" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_yrogg")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 2
@@ -92,13 +97,20 @@ texture_repeat = 2
 texture = ExtResource("1_3v41d")
 region_enabled = true
 region_rect = Rect2(-4000, -4000, 4000, 4000)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_40uwv")]
+process_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_p01g4")]
+process_mode = 1
 spawns = Array[ExtResource("5_jj7s8")]([SubResource("Resource_03m25"), SubResource("Resource_ij20a"), SubResource("Resource_68oxv"), SubResource("Resource_l8y0x"), SubResource("Resource_daq1w"), SubResource("Resource_0gpiy"), SubResource("Resource_4teun"), SubResource("Resource_rx6id"), SubResource("Resource_t2np8")])
+metadata/_edit_lock_ = true
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
+process_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="snd_Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -107,4 +119,36 @@ volume_db = -15.0
 autoplay = true
 script = ExtResource("11_ovtx6")
 
+[node name="PauseMenu" type="PopupPanel" parent="."]
+process_mode = 2
+initial_position = 2
+size = Vector2i(256, 256)
+always_on_top = true
+script = ExtResource("13_qy82i")
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 252.0
+offset_bottom = 252.0
+
+[node name="FlowContainer" type="FlowContainer" parent="PauseMenu/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="btn_resume" parent="PauseMenu/CenterContainer/FlowContainer" instance=ExtResource("13_oaqtv")]
+layout_mode = 2
+text = "Resume"
+
+[node name="btn_restart" parent="PauseMenu/CenterContainer/FlowContainer" instance=ExtResource("13_oaqtv")]
+layout_mode = 2
+text = "Restart"
+
+[node name="btn_exit" parent="PauseMenu/CenterContainer/FlowContainer" instance=ExtResource("13_oaqtv")]
+layout_mode = 2
+text = "Exit"
+
 [connection signal="playerdeath" from="Player" to="snd_Music" method="_on_player_playerdeath"]
+[connection signal="click_end" from="PauseMenu/CenterContainer/FlowContainer/btn_resume" to="PauseMenu" method="_on_btn_resume_click_end"]
+[connection signal="click_end" from="PauseMenu/CenterContainer/FlowContainer/btn_restart" to="PauseMenu" method="_on_btn_restart_click_end"]
+[connection signal="click_end" from="PauseMenu/CenterContainer/FlowContainer/btn_exit" to="PauseMenu" method="_on_btn_exit_click_end"]
