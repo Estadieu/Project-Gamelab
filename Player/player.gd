@@ -59,6 +59,7 @@ var enemy_close = []
 #GUI
 @onready var expBar = get_node("%ExperienceBar")
 @onready var lblLevel = get_node("%lbl_level")
+@onready var lblMoney = get_node("%lbl_money")
 @onready var levelPanel = get_node("%LevelUp")
 @onready var upgradeOptions = get_node("%UpgradeOptions")
 @onready var itemOptions = preload("res://Utility/item_option.tscn")
@@ -203,6 +204,7 @@ func _on_collect_area_area_entered(area):
 func calculate_experience(gem_exp):
 	var exp_required = calculate_experiencecap()
 	collected_experience += gem_exp
+	
 	if experience + collected_experience >= exp_required: #level up
 		collected_experience -= exp_required-experience
 		experience_level += 1
@@ -229,6 +231,8 @@ func calculate_experiencecap():
 func set_expbar(set_value = 1, set_max_value = 100):
 	expBar.value = set_value
 	expBar.max_value = set_max_value
+	
+	lblMoney.text = str(set_value, " nok")
 
 func levelup():
 	sndLevelUp.play()

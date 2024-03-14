@@ -127,6 +127,15 @@ text = "Level: 1"
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="lbl_money" type="Label" parent="GUILayer/GUI/ExperienceBar"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 296.0
+offset_top = -2.0
+offset_right = 336.0
+offset_bottom = 21.0
+text = "0 nok"
+
 [node name="HealthBar" type="TextureProgressBar" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.392157)
