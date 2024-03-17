@@ -33,7 +33,8 @@ func _ready():
 	_on_reset_pos_timer_timeout()
 
 func update_javelin():
-	level = player.javelin_level
+	level = player.inventory['javelin']['level']
+	
 	match level:
 		1:
 			hp = 9999
