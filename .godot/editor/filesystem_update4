@@ -1,7 +1,1 @@
-res://World/world.tscn
-res://TitleScreen/menu.tscn
-res://Enemy/enemy_cyclops.tscn
-res://Player/Attack/ice_spear.tscn
-res://Player/GUI/item_container.tscn
 res://Player/player.tscn
-res://Player/player.gd
