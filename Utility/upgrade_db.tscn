@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Utility/upgrade_db.gd" id="1_4nbpj"]
 [ext_resource type="Script" path="res://Utility/upgrades/items/icespear.gd" id="2_xy7hp"]
 [ext_resource type="Script" path="res://Utility/upgrades/items/javelin.gd" id="3_480r4"]
-[ext_resource type="Script" path="res://Utility/upgrades/items/tornado.gd" id="4_pfn38"]
+[ext_resource type="Script" path="res://Utility/upgrades/items/snowball.gd" id="4_pfn38"]
 [ext_resource type="Script" path="res://Utility/upgrades/items/armor.gd" id="5_i12kr"]
 [ext_resource type="Script" path="res://Utility/upgrades/items/speed.gd" id="6_gv7ct"]
 [ext_resource type="Script" path="res://Utility/upgrades/items/scroll.gd" id="7_a58pl"]
@@ -24,7 +24,7 @@ script = ExtResource("2_xy7hp")
 [node name="javelin" type="Node" parent="items"]
 script = ExtResource("3_480r4")
 
-[node name="tornado" type="Node" parent="items"]
+[node name="snowball" type="Node" parent="items"]
 script = ExtResource("4_pfn38")
 
 [node name="armor" type="Node" parent="items"]

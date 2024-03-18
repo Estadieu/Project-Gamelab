@@ -9,11 +9,11 @@ var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
 	"displayname": "Ice Spear",
 	"type": "gun",
 
-	"init": func (player, stats):
+	"init": func (_player, stats):
 		stats['attackspeed'] = 1.5
 		stats['bullet'] = iceSpear,
 		
-	"attack": func (player, _stats):
+	"attack": func (_player, _stats):
 		pass,
 
 	"levels": [
