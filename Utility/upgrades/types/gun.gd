@@ -32,7 +32,7 @@ var attack_timer = preload("res://Utility/attack_timer.tscn")
 		player.attackNode.add_child(stats['timer']),
 		
 	"attack": func (player, stats):
-		stats['timer'].wait_time = stats['attackspeed'] * (1 - player.stats['spell_cooldown'])
+		stats['timer'].wait_time = stats['attackspeed'] * max(1 - player.stats['spell_cooldown'], 0.2)
 
 		if stats['timer'].is_stopped():
 			stats['timer'].start()

@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Utility/upgrades/items/tome.gd" id="7_hdwa7"]
 [ext_resource type="Script" path="res://Utility/upgrades/items/rings.gd" id="8_e6v8l"]
 [ext_resource type="Script" path="res://Utility/upgrades/types/weapon.gd" id="10_qneaw"]
-[ext_resource type="Script" path="res://Utility/gun.gd" id="11_bytj4"]
+[ext_resource type="Script" path="res://Utility/upgrades/types/gun.gd" id="11_bytj4"]
 [ext_resource type="Script" path="res://Utility/upgrades/types/upgrade.gd" id="11_evdjr"]
 
 [node name="UpgradeDB" type="Node"]
