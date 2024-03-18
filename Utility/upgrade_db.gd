@@ -1,14 +1,14 @@
 extends Node
 
 const ITEM_LIST = [
-	"icespear",
-	"javelin" ,
-	"tornado" ,
-	"armor"   ,
-	"speed"   ,
-	"tome"    ,
-	"scroll"  ,
-	"ring"    ,
+	"icespear" ,
+	"javelin"  ,
+	"snowball" ,
+	"armor"    ,
+	"speed"    ,
+	"tome"     ,
+	"scroll"   ,
+	"ring"     ,
 ]
 
 const TYPE_LIST = [
