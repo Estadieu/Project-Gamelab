@@ -144,11 +144,24 @@ func set_coins(coins):
 func upgrade_character(upgrade, current_level):
 	var next_level = current_level + 1
 	
-	if current_level < len(UpgradeDb.items[upgrade]['levels']):
+	var level_config = null
+
+	if 'default_level' in UpgradeDb.items[upgrade]:
+
+		if current_level in UpgradeDb.items[upgrade]['levels']:
+			level_config = UpgradeDb.items[upgrade]['levels'][current_level]
+
+		elif current_level < UpgradeDb.items[upgrade]['default_level']['max_level']:
+			level_config = UpgradeDb.items[upgrade]['default_level']
+
+	elif current_level < len(UpgradeDb.items[upgrade]['levels']):
+		level_config = UpgradeDb.items[upgrade]['levels'][current_level]
+	
+	if level_config != null:
 		inventory[upgrade]['level'] = next_level
 		items_nodes[upgrade].levelBar.value = next_level
 		
-		UpgradeDb.items[upgrade]['levels'][current_level]['update'].call(self, inventory[upgrade])
+		level_config['update'].call(self, inventory[upgrade])
 
 		attack()
 

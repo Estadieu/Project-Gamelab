@@ -12,32 +12,14 @@ const ICON_PATH = "res://Textures/Items/Upgrades/"
 		
 	"attack": func (_player, _stats):
 		pass,
-	
-	"levels": [
-		{
+		
+		"default_level":{
+			"max_level": 10,
 			"details": "Movement Speed Increased by 50% of base speed",
 			"update": func (player, _stats):
-				player.stats['movement_speed'] += 20.0,
+				player.stats['movement_speed'] += 15.0,
 		},
-		{
-			"details": "Movement Speed Increased by an additional 50% of base speed",
-			"update": func (player, _stats):
-				player.stats['movement_speed'] += 20.0,
-		},
-		{
-			"details": "Movement Speed Increased by an additional 50% of base speed",
-			"update": func (player, _stats):
-				player.stats['movement_speed'] += 20.0,
-		},
-		{
-			"details": "Movement Speed Increased by an additional 50% of base speed",
-			"update": func (player, _stats):
-				player.stats['movement_speed'] += 20.0,
-		},
-		#{
-			#"details": "Movement Speed Increased by an additional 50% of base speed",
-			#"update": func (player, _stats):
-				#player.stats['movement_speed'] += 500.0,
-		#},
-	]
+	
+	"levels": 
+		{}
 }

@@ -19,7 +19,11 @@ func _ready():
 	itemIcon.texture = load(UpgradeDb.items[item]["icon"])
 
 	levelBar.value = 0
-	levelBar.max_value = len(UpgradeDb.items[item]['levels'])
+	
+	if 'default_level' in UpgradeDb.items[item]:
+		levelBar.max_value = UpgradeDb.items[item]['default_level']['max_level']
+	else:
+		levelBar.max_value = len(UpgradeDb.items[item]['levels'])
 	
 	#lblDescription.text = UpgradeDb.items[item]["details"]
 	#lblLevel.text = UpgradeDb.items[item]["level"]

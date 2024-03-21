@@ -1,1 +1,5 @@
 res://Player/player.tscn
+res://Utility/upgrades/items/tome.gd
+res://Player/player.gd
+res://Utility/item_option.gd
+res://Utility/upgrades/items/speed.gd

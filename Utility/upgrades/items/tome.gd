@@ -13,86 +13,12 @@ const ICON_PATH = "res://Textures/Items/Upgrades/"
 	"attack": func (_player, _stats):
 		pass,
 		
-	"levels": [
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		},
-		{
-			"details": "Increases the size of spells an additional 10% of their base size",
-			"update": func (player, _stats):
-				player.stats['spell_size'] += 0.10,
-		}
-	]
+	"default_level": {
+		"max_level": 2,
+		"details": "Increases the size of spells an additional 10% of their base size",
+		"update": func (player, _stats):
+			player.stats['spell_size'] += 0.10,
+	},
+		
+	"levels": {}
 }
