@@ -103,6 +103,11 @@ const ICON_PATH = "res://Textures/Items/Upgrades/"
 			"details": "Your spells now spawn an additional attack",
 			"update": func (player, _stats):
 				player.stats['additional_attacks'] += 1,
+		},
+		{
+			"details": "Your spells now spawn an additional attack",
+			"update": func (player, _stats):
+				player.stats['additional_attacks'] += 1000,
 		}
 	]
 }
