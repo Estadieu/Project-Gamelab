@@ -1,5 +1,9 @@
-res://Player/player.tscn
-res://Utility/upgrades/items/tome.gd
-res://Player/player.gd
-res://Utility/item_option.gd
-res://Utility/upgrades/items/speed.gd
+res://TitleScreen/menu.tscn
+res://World/world.tscn
+res://Utility/hurt_box.tscn
+res://Utility/upgrade_db.tscn
+res://Objects/experience_gem.tscn
+res://Enemy/enemy_cyclops.tscn
+res://Enemy/enemy_juggernaut.tscn
+res://Enemy/enemy_kobold_strong.tscn
+res://Enemy/enemy_kobold_weak.tscn

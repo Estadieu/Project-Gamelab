@@ -1,8 +1,8 @@
 [gd_scene load_steps=24 format=3 uid="uid://du6qbgqucaqov"]
 
-[ext_resource type="Texture2D" uid="uid://b6umklllf2jsl" path="res://Textures/dirt_full_new.png" id="1_3v41d"]
 [ext_resource type="Script" path="res://World/world.gd" id="1_yrogg"]
 [ext_resource type="PackedScene" uid="uid://dncgepmkc4jf4" path="res://Player/player.tscn" id="2_40uwv"]
+[ext_resource type="Texture2D" uid="uid://cilnsjwsrc7pa" path="res://Textures/Bckround_Jeu.png" id="2_m0ug2"]
 [ext_resource type="PackedScene" uid="uid://ba2claihwes2y" path="res://Utility/enemy_spawner.tscn" id="3_p01g4"]
 [ext_resource type="PackedScene" uid="uid://gvm5jcbbgwdv" path="res://Enemy/enemy_kobold_weak.tscn" id="4_ee8bm"]
 [ext_resource type="Script" path="res://Utility/spawn_info.gd" id="5_jj7s8"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="11_ovtx6"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="13_oaqtv"]
 [ext_resource type="Script" path="res://World/PauseMenu.gd" id="13_qy82i"]
-
 
 [sub_resource type="Resource" id="Resource_03m25"]
 script = ExtResource("5_jj7s8")
@@ -95,7 +94,7 @@ script = ExtResource("1_yrogg")
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 2
 texture_repeat = 2
-texture = ExtResource("1_3v41d")
+texture = ExtResource("2_m0ug2")
 region_enabled = true
 region_rect = Rect2(-4000, -4000, 4000, 4000)
 metadata/_edit_lock_ = true
