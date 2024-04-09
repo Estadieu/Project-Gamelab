@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dy1l7a157foou"]
 
-[ext_resource type="Script" path="res://Utility/upgrade_db.gd" id="1_4nbpj"]
+[ext_resource type="Script" path="res://Utility/upgrades/upgrade_db.gd" id="1_4nbpj"]
 [ext_resource type="Script" path="res://Utility/upgrades/items/icespear.gd" id="2_xy7hp"]
 [ext_resource type="Script" path="res://Utility/upgrades/items/javelin.gd" id="3_480r4"]
 [ext_resource type="Script" path="res://Utility/upgrades/items/snowball.gd" id="4_pfn38"]

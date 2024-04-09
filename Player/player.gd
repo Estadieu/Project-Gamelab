@@ -50,14 +50,16 @@ signal playerdeath
 
 func _ready():
 	for i in UpgradeDb.items:
-		var item_config = UpgradeDb.items[i]
+		var item_node = UpgradeDb.items[i]
 		
 		inventory[i] = {
 			'level': 0
 		}
 		
-		UpgradeDb.types[item_config['type']]['init'].call(self, inventory[i])
-		item_config['init'].call(self, inventory[i])
+		UpgradeDb.types[item_node.config['type']].init(self, inventory[i])
+
+		if 'init' in item_node:
+			item_node.init(self, inventory[i])
 		
 		items_nodes[i] = itemOptions.instantiate()
 		items_nodes[i].item = i
@@ -95,10 +97,14 @@ func movement():
 	move_and_slide()
 
 func attack():
+	#pass
 	for i in UpgradeDb.items:
 		if inventory[i]['level'] > 0:
-			UpgradeDb.types[UpgradeDb.items[i]['type']]['attack'].call(self, inventory[i])
-			UpgradeDb.items[i]['attack'].call(self, inventory[i])
+			if 'attack' in UpgradeDb.types[UpgradeDb.items[i].config['type']]:
+				UpgradeDb.types[UpgradeDb.items[i].config['type']]['attack'].call(self, inventory[i])
+
+			if 'attack' in UpgradeDb.items[i]:
+				UpgradeDb.items[i]['attack'].call(self, inventory[i])
 
 func _on_hurt_box_hurt(damage, _angle, _knockback):
 	stats['hp'] -= clamp(damage - stats['armor'], 0.0, 999.0)
@@ -144,18 +150,19 @@ func set_coins(coins):
 func upgrade_character(upgrade, current_level):
 	var next_level = current_level + 1
 	
+	var config = UpgradeDb.items[upgrade].config
 	var level_config = null
 
-	if 'default_level' in UpgradeDb.items[upgrade]:
+	if 'default_level' in config:
 
-		if current_level in UpgradeDb.items[upgrade]['levels']:
-			level_config = UpgradeDb.items[upgrade]['levels'][current_level]
+		if str(current_level) in config['levels']:
+			level_config = config['levels'][str(current_level)]
 
-		elif current_level < UpgradeDb.items[upgrade]['default_level']['max_level']:
-			level_config = UpgradeDb.items[upgrade]['default_level']
+		elif current_level < config['default_level']['max_level']:
+			level_config = config['default_level']
 
-	elif current_level < len(UpgradeDb.items[upgrade]['levels']):
-		level_config = UpgradeDb.items[upgrade]['levels'][current_level]
+	elif current_level < len(config['levels']):
+		level_config = config['levels'][current_level]
 	
 	if level_config != null:
 		inventory[upgrade]['level'] = next_level

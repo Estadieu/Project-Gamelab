@@ -23,7 +23,7 @@ signal remove_from_array(object)
 
 func _ready():
 	anim.play("walk")
-	hitBox.damage = enemy_damage
+	hitBox.stats['damage'] = enemy_damage
 
 func _physics_process(_delta):
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)

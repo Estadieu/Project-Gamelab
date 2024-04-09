@@ -14,16 +14,18 @@ signal selected_upgrade(upgrade)
 
 func _ready():
 	connect("selected_upgrade", Callable(player, "upgrade_character"))
+	
+	var config = UpgradeDb.items[item].config
 
-	lblName.text = UpgradeDb.items[item]["displayname"]
-	itemIcon.texture = load(UpgradeDb.items[item]["icon"])
+	lblName.text = config["displayname"]
+	itemIcon.texture = load(config["icon"])
 
 	levelBar.value = 0
 	
-	if 'default_level' in UpgradeDb.items[item]:
-		levelBar.max_value = UpgradeDb.items[item]['default_level']['max_level']
+	if 'default_level' in config:
+		levelBar.max_value = config['default_level']['max_level']
 	else:
-		levelBar.max_value = len(UpgradeDb.items[item]['levels'])
+		levelBar.max_value = len(config['levels'])
 	
 	#lblDescription.text = UpgradeDb.items[item]["details"]
 	#lblLevel.text = UpgradeDb.items[item]["level"]

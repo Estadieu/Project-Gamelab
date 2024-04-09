@@ -7,108 +7,13 @@ const ICON_PATH = "res://Textures/Items/Upgrades/"
 	"displayname": "Ring",
 	"type": "upgrade",
 	
-	"init": func (_player, _stats):
-		pass,
-		
-	"attack": func (_player, _stats):
-		pass,
-		
-	"levels": [
-		{
-			"details": "Your spells now spawn 1 more additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1,
-		},
-		{
-			"details": "Your spells now spawn an additional attack",
-			"update": func (player, _stats):
-				player.stats['additional_attacks'] += 1000,
-		}
-	]
+	"default_level": {
+		"max_level": 5,
+		"details": "Your spells now spawn 1 more additional attack",
+		"update": func (player, _stats):
+			player.stats['additional_attacks'] += 1,
+	},
+
+	"levels": {}
 }
 
