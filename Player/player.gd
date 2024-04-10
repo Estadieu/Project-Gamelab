@@ -82,6 +82,19 @@ func movement():
 
 	sprite.flip_h = (mov.x == 0 && sprite.flip_h) || (mov.x > 0)
 
+	if mov.x > 0:
+		mov.x = max(min((global_position.x + mov.x), 1650) - global_position.x, 0)
+	else:
+		mov.x = min(max((global_position.x + mov.x), -1750) - global_position.x, 0)
+		
+	if mov.y > 0:
+		mov.y = max(min((global_position.y + mov.y), 1750) - global_position.y, 0)
+	else:
+		mov.y = min(max((global_position.y + mov.y), -1750) - global_position.y, 0)
+		
+	#mov.x = max(min((global_position.x + mov.x), 1900), -1900) - global_position.x
+	#mov.y = max(min((global_position.y + mov.y), 1900), -1900) - global_position.y
+
 	if mov != Vector2.ZERO:
 		stats['last_movement'] = mov
 		if walkTimer.is_stopped():
@@ -92,6 +105,7 @@ func movement():
 			walkTimer.start()
 	
 	velocity = mov.normalized() * stats['movement_speed']
+	
 	move_and_slide()
 
 func attack():

@@ -89,19 +89,20 @@ enemy_spawn_delay = 0
 
 [node name="World" type="Node2D"]
 process_mode = 3
+position = Vector2(-68, -69)
 script = ExtResource("1_yrogg")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 2
 texture_repeat = 2
+position = Vector2(80, 81)
 texture = ExtResource("2_m0ug2")
 region_enabled = true
 region_rect = Rect2(-4000, -4000, 4000, 4000)
-metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_40uwv")]
 process_mode = 1
-metadata/_edit_lock_ = true
+position = Vector2(81, 76)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_p01g4")]
 process_mode = 1
@@ -110,7 +111,7 @@ metadata/_edit_lock_ = true
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 process_mode = 1
-metadata/_edit_lock_ = true
+position = Vector2(-53, -44)
 
 [node name="snd_Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
