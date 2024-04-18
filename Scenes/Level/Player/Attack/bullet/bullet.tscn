@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://umligcno3m2g"]
+
+[ext_resource type="Script" path="res://Scenes/Level/Player/Attack/bullet/bullet.gd" id="1_pfppq"]
+
+[node name="Bullet" type="Area2D" groups=["attack"]]
+script = ExtResource("1_pfppq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
