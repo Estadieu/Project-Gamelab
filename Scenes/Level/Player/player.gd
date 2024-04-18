@@ -19,7 +19,13 @@ var stats = {
 	'additional_attacks': 0
 }
 
-var coins = 0
+var coins = 0 :
+	set(value):
+		coins = value
+	
+		store.set_available_money(coins)
+		
+		lblMoney.text = str(coins, " nok")
 
 #Enemy Related
 var enemy_close = []
@@ -49,7 +55,7 @@ func _ready():
 	store.player = self
 	
 	#set_coins(0)
-	set_coins(1000)
+	coins = 1000
 	#upgrade_character("icespear", 0)
 	store.mapped_upgrade("Ice Spear", true)
 
@@ -115,50 +121,7 @@ func _on_grab_area_area_entered(area):
 
 func _on_collect_area_area_entered(area):
 	if area.is_in_group("loot"):
-		add_coins(area.collect())
-
-#func get_next_level_config(upgrade):
-	#var current_level = inventory[upgrade]['level']
-	#var level_config = null
-	#var config = UpgradeDb.items[upgrade].config
-#
-	#if 'default_level' in config:
-#
-		#if str(current_level) in config['levels']:
-			#level_config = config['levels'][str(current_level)]
-#
-		#elif current_level < config['default_level']['max_level']:
-			#level_config = config['default_level']
-#
-	#elif current_level < len(config['levels']):
-		#level_config = config['levels'][current_level]
-		#
-	#return level_config
-
-
-func add_coins(amount): set_coins(coins + amount)
-func sub_coins(amount): set_coins(coins - amount)
-
-func set_coins(value):
-	coins = value
-	
-	store.set_available_money(coins)
-	
-	lblMoney.text = str(coins, " nok")
-
-#func upgrade_character(upgrade, current_level):
-	#var next_level = current_level + 1
-	#var level_config = get_next_level_config(upgrade)
-	#
-	#if level_config != null and not items_nodes[upgrade].locked:		
-		#inventory[upgrade]['level'] = next_level
-		#
-		#items_nodes[upgrade].levelBar.value = next_level
-		#
-		#level_config['update'].call(self, inventory[upgrade])
-		#
-		#sub_coins(level_config.price)
-		#attack()
+		coins += area.collect()
 
 func change_time(argtime = 0):
 	stats['time'] = argtime

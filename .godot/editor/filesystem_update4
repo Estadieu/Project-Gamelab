@@ -1,5 +1,3 @@
-res://Player/player.tscn
-res://Utility/upgrades/items/tome.gd
-res://Player/player.gd
-res://Utility/item_option.gd
-res://Utility/upgrades/items/speed.gd
+res://Scenes/Home/home.tscn
+res://Scenes/Level/Player/Store/Item/item.gd
+res://Scenes/Level/Player/player.gd

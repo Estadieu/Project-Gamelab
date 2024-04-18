@@ -72,7 +72,7 @@ func upgrade(force = false):
 		
 		level_config['update'].call()
 		
-		player.sub_coins(level_config.price)
+		player.coins -= level_config.price
 		player.attack()
 		
 	
