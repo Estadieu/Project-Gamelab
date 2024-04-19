@@ -1,15 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://du6qbgqucaqov"]
+[gd_scene load_steps=25 format=3 uid="uid://du6qbgqucaqov"]
 
 [ext_resource type="Script" path="res://Scenes/Level/level.gd" id="1_8dp8a"]
 [ext_resource type="Texture2D" uid="uid://b6umklllf2jsl" path="res://Textures/dirt_full_new.png" id="2_wj2nd"]
-[ext_resource type="PackedScene" uid="uid://dncgepmkc4jf4" path="res://Scenes/Level/Player/player.tscn" id="3_h2bbq"]
+[ext_resource type="PackedScene" uid="uid://dncgepmkc4jf4" path="res://Scenes/Level/Entities/Player/player.tscn" id="3_h2bbq"]
 [ext_resource type="PackedScene" uid="uid://ba2claihwes2y" path="res://Scenes/Level/Utility/enemy_spawner.tscn" id="4_hxm1k"]
-[ext_resource type="PackedScene" uid="uid://gvm5jcbbgwdv" path="res://Scenes/Level/Enemy/enemy_kobold_weak.tscn" id="5_wegtn"]
+[ext_resource type="PackedScene" uid="uid://bro1o8mstekxh" path="res://Scenes/Level/Entities/Enemy/enemy_2.tscn" id="5_87b22"]
+[ext_resource type="PackedScene" uid="uid://gvm5jcbbgwdv" path="res://Scenes/Level/Entities/Enemy/enemy_kobold_weak.tscn" id="5_wegtn"]
 [ext_resource type="Script" path="res://Scenes/Level/Utility/spawn_info.gd" id="6_uxld7"]
-[ext_resource type="PackedScene" uid="uid://bbvhxvk65o8el" path="res://Scenes/Level/Enemy/enemy_kobold_strong.tscn" id="7_g0iqi"]
-[ext_resource type="PackedScene" uid="uid://bok7kd2psi5gl" path="res://Scenes/Level/Enemy/enemy_cyclops.tscn" id="8_g5bc2"]
-[ext_resource type="PackedScene" uid="uid://hcjnrdsb563h" path="res://Scenes/Level/Enemy/enemy_juggernaut.tscn" id="9_0pbum"]
-[ext_resource type="PackedScene" uid="uid://btf7clk4jja87" path="res://Scenes/Level/Enemy/enemy_super.tscn" id="10_t4lvr"]
+[ext_resource type="PackedScene" uid="uid://bbvhxvk65o8el" path="res://Scenes/Level/Entities/Enemy/enemy_kobold_strong.tscn" id="7_g0iqi"]
+[ext_resource type="PackedScene" uid="uid://bok7kd2psi5gl" path="res://Scenes/Level/Entities/Enemy/enemy_cyclops.tscn" id="8_g5bc2"]
+[ext_resource type="PackedScene" uid="uid://hcjnrdsb563h" path="res://Scenes/Level/Entities/Enemy/enemy_juggernaut.tscn" id="9_0pbum"]
+[ext_resource type="PackedScene" uid="uid://btf7clk4jja87" path="res://Scenes/Level/Entities/Enemy/enemy_super.tscn" id="10_t4lvr"]
 [ext_resource type="AudioStream" uid="uid://bbufl4r1ou1rw" path="res://Audio/Music/battleThemeA.mp3" id="11_4bope"]
 [ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="12_rec6w"]
 [ext_resource type="Script" path="res://Scenes/Level/_PauseMenu.gd" id="13_wvsox"]
@@ -19,8 +20,8 @@
 script = ExtResource("6_uxld7")
 time_start = 0
 time_end = 30
-enemy = ExtResource("5_wegtn")
-enemy_num = 1
+enemy = ExtResource("5_87b22")
+enemy_num = 10
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_ij20a"]
