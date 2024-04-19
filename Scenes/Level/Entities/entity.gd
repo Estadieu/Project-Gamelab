@@ -2,12 +2,10 @@ extends CharacterBody2D
 
 class_name Entity
 
-var _stats = {
-	'hp': 10,
-	'maxhp': 10,
-	
-	'speed': 20.0
-}
+@export var max_hp : int   = 10
+@export var speed  : float = 20.0
+
+@onready var hp = max_hp
 
 func _init():
 	pass

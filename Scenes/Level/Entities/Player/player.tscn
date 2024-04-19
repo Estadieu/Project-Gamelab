@@ -152,7 +152,6 @@ shape = SubResource("CircleShape2D_6vwp8")
 
 [node name="HurtBox" parent="Areas" instance=ExtResource("3_gs51i")]
 collision_mask = 2
-HurtBoxType = 2
 
 [node name="CollisionShape2D" parent="Areas/HurtBox" index="0"]
 position = Vector2(2, 3)

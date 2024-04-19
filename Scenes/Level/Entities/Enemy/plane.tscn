@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bro1o8mstekxh"]
+[gd_scene load_steps=3 format=3 uid="uid://bn23p23ckhmr2"]
 
-[ext_resource type="PackedScene" uid="uid://c3yfks8k7m4r" path="res://Scenes/Level/Entities/Enemy/enemy_generic.tscn" id="1_5h7lj"]
-[ext_resource type="Script" path="res://Scenes/Level/Entities/Enemy/enemy_2.gd" id="2_mgq4u"]
-[ext_resource type="Texture2D" uid="uid://bb2tqmla8xdg8" path="res://Textures/Enemy/kolbold_weak.png" id="3_g3mlu"]
+[ext_resource type="PackedScene" uid="uid://c3yfks8k7m4r" path="res://Scenes/Level/Entities/Enemy/enemy.tscn" id="1_c7ked"]
+[ext_resource type="Texture2D" uid="uid://ce0hue7fwpa3a" path="res://Textures/Enemy/giant_amoeba_new.png" id="2_vbm6m"]
 
-[node name="Enemy2" instance=ExtResource("1_5h7lj")]
-script = ExtResource("2_mgq4u")
+[node name="Plane" instance=ExtResource("1_c7ked")]
+damage = 20.0
+experience = 100
+knockback_recovery = 99999.0
+speed = 300.0
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_g3mlu")
+texture = ExtResource("2_vbm6m")
+hframes = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 2)

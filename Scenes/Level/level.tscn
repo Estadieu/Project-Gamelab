@@ -1,19 +1,23 @@
-[gd_scene load_steps=25 format=3 uid="uid://du6qbgqucaqov"]
+[gd_scene load_steps=36 format=3 uid="uid://du6qbgqucaqov"]
 
 [ext_resource type="Script" path="res://Scenes/Level/level.gd" id="1_8dp8a"]
 [ext_resource type="Texture2D" uid="uid://b6umklllf2jsl" path="res://Textures/dirt_full_new.png" id="2_wj2nd"]
 [ext_resource type="PackedScene" uid="uid://dncgepmkc4jf4" path="res://Scenes/Level/Entities/Player/player.tscn" id="3_h2bbq"]
 [ext_resource type="PackedScene" uid="uid://ba2claihwes2y" path="res://Scenes/Level/Utility/enemy_spawner.tscn" id="4_hxm1k"]
-[ext_resource type="PackedScene" uid="uid://bro1o8mstekxh" path="res://Scenes/Level/Entities/Enemy/enemy_2.tscn" id="5_87b22"]
-[ext_resource type="PackedScene" uid="uid://gvm5jcbbgwdv" path="res://Scenes/Level/Entities/Enemy/enemy_kobold_weak.tscn" id="5_wegtn"]
+[ext_resource type="PackedScene" uid="uid://bro1o8mstekxh" path="res://Scenes/Level/Entities/Enemy/polarbear.tscn" id="5_87b22"]
 [ext_resource type="Script" path="res://Scenes/Level/Utility/spawn_info.gd" id="6_uxld7"]
-[ext_resource type="PackedScene" uid="uid://bbvhxvk65o8el" path="res://Scenes/Level/Entities/Enemy/enemy_kobold_strong.tscn" id="7_g0iqi"]
-[ext_resource type="PackedScene" uid="uid://bok7kd2psi5gl" path="res://Scenes/Level/Entities/Enemy/enemy_cyclops.tscn" id="8_g5bc2"]
-[ext_resource type="PackedScene" uid="uid://hcjnrdsb563h" path="res://Scenes/Level/Entities/Enemy/enemy_juggernaut.tscn" id="9_0pbum"]
-[ext_resource type="PackedScene" uid="uid://btf7clk4jja87" path="res://Scenes/Level/Entities/Enemy/enemy_super.tscn" id="10_t4lvr"]
+[ext_resource type="Script" path="res://Scenes/Level/Entities/Enemy/enemy.gd" id="7_dkh1y"]
+[ext_resource type="PackedScene" uid="uid://br5mc50blfcah" path="res://Scenes/Level/Entities/Enemy/reindeer.tscn" id="7_g0iqi"]
+[ext_resource type="PackedScene" uid="uid://2k5j8m7ei1u" path="res://Scenes/Level/Entities/Enemy/fox.tscn" id="8_g5bc2"]
+[ext_resource type="Texture2D" uid="uid://bb2tqmla8xdg8" path="res://Textures/Enemy/kolbold_weak.png" id="8_vaeal"]
+[ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Scenes/Level/Utility/hurt_box.tscn" id="9_1e3vi"]
+[ext_resource type="PackedScene" uid="uid://uhr6mtuisqm1" path="res://Scenes/Level/Utility/hit_box.tscn" id="10_kl0c8"]
+[ext_resource type="PackedScene" uid="uid://bn23p23ckhmr2" path="res://Scenes/Level/Entities/Enemy/plane.tscn" id="10_t4lvr"]
 [ext_resource type="AudioStream" uid="uid://bbufl4r1ou1rw" path="res://Audio/Music/battleThemeA.mp3" id="11_4bope"]
+[ext_resource type="AudioStream" uid="uid://bi7t7cjthnhhc" path="res://Audio/SoundEffect/enemy_hit.ogg" id="11_a8eir"]
 [ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="12_rec6w"]
 [ext_resource type="Script" path="res://Scenes/Level/_PauseMenu.gd" id="13_wvsox"]
+[ext_resource type="PackedScene" uid="uid://dpufsaa3ciflg" path="res://Scenes/Level/Entities/Enemy/eagle.tscn" id="14_cr7hq"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="14_ykd8y"]
 
 [sub_resource type="Resource" id="Resource_03m25"]
@@ -21,14 +25,77 @@ script = ExtResource("6_uxld7")
 time_start = 0
 time_end = 30
 enemy = ExtResource("5_87b22")
-enemy_num = 10
+enemy_num = 1
 enemy_spawn_delay = 0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24u87"]
+radius = 2.0
+height = 10.0
+
+[sub_resource type="Animation" id="Animation_xfnyu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_w8hns"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_regpg"]
+_data = {
+"RESET": SubResource("Animation_xfnyu"),
+"walk": SubResource("Animation_w8hns")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rborl"]
+size = Vector2(18, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucec4"]
+size = Vector2(10, 16)
+
+[sub_resource type="PackedScene" id="PackedScene_banrq"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(4, 0, 25, 24, 2, 0, 0),
+"editable_instances": [NodePath("HurtBox"), NodePath("HitBox")],
+"names": PackedStringArray("enemy_kobold_weak", "collision_layer", "collision_mask", "motion_mode", "script", "CharacterBody2D", "Sprite2D", "scale", "texture", "hframes", "CollisionShape2D", "position", "shape", "AnimationPlayer", "libraries", "HurtBox", "HurtBoxType", "DisableTimer", "HitBox", "DisableHitBoxTimer", "snd_hit", "stream", "volume_db", "AudioStreamPlayer2D", "_on_hurt_box_hurt", "hurt"),
+"node_count": 9,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 5, 0, -1, 4, 1, 0, 2, 0, 3, 1, 4, 2, 0, 0, 0, 6, 6, -1, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 10, 10, -1, 2, 11, 6, 12, 7, 0, 0, 0, 13, 13, -1, 1, 14, 8, 0, 0, 0, 2147483647, 15, 9, 2, 2, 10, 16, 1, 0, 4, -1, 2147483647, 262154, -1, 2, 11, 11, 12, 12, 0, 0, 0, 2147483647, 18, 13, 1, 1, 5, 0, 6, -1, 2147483647, 262154, -1, 2, 11, 6, 12, 14, 0, 0, 0, 23, 20, -1, 2, 21, 15, 22, 16, 0),
+"variants": [5, 1, ExtResource("7_dkh1y"), Vector2(0.75, 0.75), ExtResource("8_vaeal"), 2, Vector2(1, 3), SubResource("CapsuleShape2D_24u87"), {
+"": SubResource("AnimationLibrary_regpg")
+}, ExtResource("9_1e3vi"), 4, Vector2(1, 1.5), SubResource("RectangleShape2D_rborl"), ExtResource("10_kl0c8"), SubResource("RectangleShape2D_ucec4"), ExtResource("11_a8eir"), -20.0],
+"version": 3
+}
 
 [sub_resource type="Resource" id="Resource_ij20a"]
 script = ExtResource("6_uxld7")
 time_start = 30
 time_end = 210
-enemy = ExtResource("5_wegtn")
+enemy = SubResource("PackedScene_banrq")
 enemy_num = 2
 enemy_spawn_delay = 0
 
@@ -68,8 +135,8 @@ enemy_spawn_delay = 0
 script = ExtResource("6_uxld7")
 time_start = 240
 time_end = 240
-enemy = ExtResource("9_0pbum")
-enemy_num = 1
+enemy = ExtResource("14_cr7hq")
+enemy_num = 5
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_rx6id"]
