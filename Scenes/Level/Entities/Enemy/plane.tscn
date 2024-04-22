@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn23p23ckhmr2"]
+
+[ext_resource type="PackedScene" uid="uid://c3yfks8k7m4r" path="res://Scenes/Level/Entities/Enemy/enemy.tscn" id="1_c7ked"]
+[ext_resource type="Texture2D" uid="uid://ce0hue7fwpa3a" path="res://Textures/Enemy/giant_amoeba_new.png" id="2_vbm6m"]
+
+[node name="Plane" instance=ExtResource("1_c7ked")]
+damage = 20.0
+experience = 100
+knockback_recovery = 99999.0
+speed = 300.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_vbm6m")
+hframes = 1
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 2)
+
+[node name="HurtBox" parent="." index="3"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, 2)
+
+[node name="HitBox" parent="." index="4"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 2)
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

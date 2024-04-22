@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://dldt0qgjhmxkd"]
+
+[ext_resource type="Script" path="res://Scenes/Level/Entities/Player/player.gd" id="1_37q80"]
+[ext_resource type="PackedScene" uid="uid://c585fhwojxl1m" path="res://Scenes/Level/Entities/entity.tscn" id="1_cm86a"]
+[ext_resource type="Texture2D" uid="uid://doa3scrwgj2oq" path="res://Textures/Player/player_sprite.png" id="2_ojjuc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71ee1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdget"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfmvs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_suc3e"]
+radius = 370.951
+
+[node name="Player" groups=["player"] instance=ExtResource("1_cm86a")]
+process_mode = 1
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_37q80")
+max_hp = 80
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ojjuc")
+
+[node name="HealthBar" parent="." index="1"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = 115.0
+offset_right = 215.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_71ee1")
+
+[node name="HurtBox" parent="." index="4"]
+collision_mask = 2
+
+[node name="Camera2D" type="Camera2D" parent="." index="6"]
+
+[node name="ObjectsLayer" type="Node2D" parent="." index="7"]
+unique_name_in_owner = true
+
+[node name="Javelins" type="Node2D" parent="ObjectsLayer" index="0"]
+
+[node name="Areas" type="Node2D" parent="." index="8"]
+
+[node name="GrabArea" type="Area2D" parent="Areas" index="0"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/GrabArea" index="0"]
+shape = SubResource("CircleShape2D_mdget")
+
+[node name="CollectArea" type="Area2D" parent="Areas" index="1"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/CollectArea" index="0"]
+shape = SubResource("CircleShape2D_nfmvs")
+
+[node name="EnemyDetectionArea" type="Area2D" parent="Areas" index="2"]
+visible = false
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/EnemyDetectionArea" index="0"]
+shape = SubResource("CircleShape2D_suc3e")
+
+[connection signal="area_entered" from="Areas/GrabArea" to="." method="_on_grab_area_area_entered"]
+[connection signal="area_entered" from="Areas/CollectArea" to="." method="_on_collect_area_area_entered"]
+
+[editable path="HurtBox"]

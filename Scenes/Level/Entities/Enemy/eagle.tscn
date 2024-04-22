@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpufsaa3ciflg"]
+
+[ext_resource type="PackedScene" uid="uid://c3yfks8k7m4r" path="res://Scenes/Level/Entities/Enemy/enemy.tscn" id="1_rmo7n"]
+[ext_resource type="Texture2D" uid="uid://blpjl8raquq2s" path="res://Textures/Enemy/juggernaut.png" id="2_kwlt7"]
+
+[node name="Eagle" instance=ExtResource("1_rmo7n")]
+damage = 10.0
+experience = 100
+knockback_recovery = 20.0
+speed = 40.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_kwlt7")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 2)
+
+[node name="HurtBox" parent="." index="3"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, 2)
+
+[node name="HitBox" parent="." index="4"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 2)
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

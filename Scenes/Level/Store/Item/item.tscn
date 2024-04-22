@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4xujaakdsubi"]
+
+[ext_resource type="Script" path="res://Scenes/Level/Store/Item/item.gd" id="1_hurhy"]
+[ext_resource type="Texture2D" uid="uid://bu2son8g2konp" path="res://Textures/Items/Weapons/sword.png" id="2_816uu"]
+[ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="3_xlbfa"]
+[ext_resource type="Texture2D" uid="uid://dlx33roiu0vlj" path="res://Textures/GUI/exp_progress.png" id="4_fw31k"]
+
+[node name="ItemOption" type="ColorRect"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_hurhy")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("2_816uu")
+
+[node name="Name" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 25.0
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("3_xlbfa")
+theme_override_font_sizes/font_size = 12
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = -11.0
+offset_right = 178.0
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("3_xlbfa")
+theme_override_font_sizes/font_size = 8
+text = "Description of Item"
+autowrap_mode = 3
+
+[node name="LevelBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_top = 45.0
+offset_right = 50.0
+offset_bottom = 50.0
+max_value = 10.0
+value = 7.0
+nine_patch_stretch = true
+texture_progress = ExtResource("4_fw31k")
+tint_progress = Color(0, 1, 1, 1)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bro1o8mstekxh"]
+
+[ext_resource type="PackedScene" uid="uid://c3yfks8k7m4r" path="res://Scenes/Level/Entities/Enemy/enemy.tscn" id="1_5h7lj"]
+[ext_resource type="Texture2D" uid="uid://bb2tqmla8xdg8" path="res://Textures/Enemy/kolbold_weak.png" id="3_g3mlu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t8ngu"]
+resource_local_to_scene = true
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p72hr"]
+resource_local_to_scene = true
+radius = 14.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qydki"]
+resource_local_to_scene = true
+radius = 11.0
+
+[node name="PolarBear" instance=ExtResource("1_5h7lj")]
+collision_mask = 7
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -3)
+texture = ExtResource("3_g3mlu")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_t8ngu")
+debug_color = Color(0, 0, 0, 0.419608)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="HurtBox" parent="." index="4"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_p72hr")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_qydki")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[editable path="HurtBox"]
+[editable path="HitBox"]
