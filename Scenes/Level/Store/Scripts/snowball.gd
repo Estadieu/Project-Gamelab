@@ -4,7 +4,7 @@ func _init():
 	super._init(
 		"res://Textures/Items/Weapons/snowball.png",
 		"Snow ball",
-		"res://Scenes/Level/Entities/Player/Store/Objects/snowball.tscn"
+		"res://Scenes/Level/Store/Objects/snowball.tscn"
 	)
 
 	default_level = {

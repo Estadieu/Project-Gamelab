@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Entity
 
 @export var max_hp : int   = 10
+@export var armor  : int   =  0
 @export var speed  : float = 20.0
 
 var knockback : Vector2 = Vector2.ZERO
@@ -45,7 +46,7 @@ func _physics_process(_delta):
 	
 
 func _on_hurt_box_hurt(p_damage, angle, knockback_amount):
-	hp -= p_damage
+	hp -= clamp(p_damage - armor, 0.0, 999.0)
 	knockback = angle * knockback_amount
 
 	healthBar.value = hp

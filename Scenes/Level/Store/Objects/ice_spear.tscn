@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://wpliv06gy0pq"]
 
-[ext_resource type="Script" path="res://Scenes/Level/Entities/Player/Store/Objects/ice_spear.gd" id="1_lsh0r"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Objects/ice_spear.gd" id="1_lsh0r"]
 [ext_resource type="Texture2D" uid="uid://jjt1rh5e2jcp" path="res://Textures/Items/Weapons/ice_spear.png" id="2_5w5lv"]
 [ext_resource type="AudioStream" uid="uid://cl3g2vts3nyt0" path="res://Audio/SoundEffect/ice.wav" id="3_6007h"]
 

@@ -7,6 +7,6 @@ func _init():
 		"max_level": 5,
 		"price": 1,
 		"details": "Reduces Damage By 1 point",
-		"update": func (): player.add_stats('armor', 1),
+		"update": func (): player.armor += 1,
 	}
 

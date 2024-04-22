@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4xujaakdsubi"]
 
-[ext_resource type="Script" path="res://Scenes/Level/Entities/Player/Store/Item/item.gd" id="1_hurhy"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Item/item.gd" id="1_hurhy"]
 [ext_resource type="Texture2D" uid="uid://bu2son8g2konp" path="res://Textures/Items/Weapons/sword.png" id="2_816uu"]
 [ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="3_xlbfa"]
 [ext_resource type="Texture2D" uid="uid://dlx33roiu0vlj" path="res://Textures/GUI/exp_progress.png" id="4_fw31k"]

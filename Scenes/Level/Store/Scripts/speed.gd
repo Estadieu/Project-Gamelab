@@ -7,5 +7,5 @@ func _init():
 		"max_level": 10,
 		"price": 1,
 		"details": "Movement Speed Increased by 50% of base speed",
-		"update": func (): player.add_stats('movement_speed', 15.0),
+		"update": func (): player.speed += 15.0,
 	}

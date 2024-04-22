@@ -52,8 +52,7 @@ func _on_attack():
 	#tween.play()
 	
 	# TODO: Check bug last movement
-	#set_target(bullet)
-	
+	#set_target(bullet)	
 	bullet.target = player.get_random_target()
 
 	player.add_child(bullet)

@@ -2,7 +2,7 @@ extends Item
 
 var stats = {}
 
-var javelin = preload("res://Scenes/Level/Entities/Player/Store/Objects/javelin.tscn")
+var javelin = preload("res://Scenes/Level/Store/Objects/javelin.tscn")
 
 var javelins
 

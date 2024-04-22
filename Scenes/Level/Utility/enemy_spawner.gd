@@ -1,7 +1,6 @@
 extends Node2D
 
-
-@export var spawns: Array[Spawn_info] = []
+@export var spawns : Array[SpawnInfo] = []
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
@@ -10,7 +9,7 @@ extends Node2D
 signal changetime(time)
 
 func _ready():
-	connect("changetime",Callable(player,"change_time"))
+	connect("changetime",Callable(get_parent(), "update_time"))
 
 func _on_timer_timeout():
 	time += 1

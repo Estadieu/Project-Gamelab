@@ -1,9 +1,5 @@
-res://Scenes/Level/Entities/entity.tscn
-res://Scenes/Level/Entities/Enemy/polarbear.tscn
-res://Scenes/Level/Utility/hurt_box.tscn
-res://Scenes/Level/Entities/Enemy/enemy.tscn
+res://Scenes/Level/Store/store.tscn
+res://Scenes/Level/Store/Scripts/javelin.gd
+res://Scenes/Level/Store/store.gd
+res://Scenes/Level/Store/Item/item.tscn
 res://Scenes/Level/Entities/Player/player.tscn
-res://Scenes/Level/Entities/Player/player.gd
-res://Scenes/Level/Entities/Enemy/enemy.gd
-res://Scenes/Level/Entities/entity.gd
-res://Scenes/Level/level.tscn
