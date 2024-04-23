@@ -1,5 +1,7 @@
 extends Panel
 
+@export var open_input : InputEventKey = null
+
 @onready var tree = get_tree()
 
 var home = "res://Scenes/Home/home.tscn"

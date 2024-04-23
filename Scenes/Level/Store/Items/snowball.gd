@@ -1,14 +1,7 @@
 extends Gun
 
 func _init():
-	super._init(
-		"res://Textures/Items/Weapons/snowball.png",
-		"Snow ball",
-		"res://Scenes/Level/Store/Objects/snowball.tscn"
-	)
-
 	default_level = {
-		"max_level": 5,
 		"price": 1,
 		"details": "A snowball is created and random heads somewhere in the players direction",
 		"update": func (): base_ammo += 1,

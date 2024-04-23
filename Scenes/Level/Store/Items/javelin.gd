@@ -2,15 +2,10 @@ extends Item
 
 var stats = {}
 
-var javelin = preload("res://Scenes/Level/Store/Objects/javelin.tscn")
-
-var javelins
+var javelin = preload("res://Scenes/Level/Objects/Bullet/javelin.tscn")
 
 func _init():
-	super._init("res://Textures/Items/Weapons/javelin_3_new_attack.png", "Javelin")
-	
 	default_level = {
-		"max_level": 4,
 		"price": 1,
 		"details": "The javelin will now attack an additional enemy per attack",
 		"update": func (): stats['paths'] += 1,
@@ -44,11 +39,7 @@ func _init():
 		'attack_speed': 5.0
 	}
 
-func connect_player(p_player):
-	super.connect_player(p_player)
-	
-	javelins = player.get_node("ObjectsLayer/Javelins")
-	
+func _connected():
 	player.connect('stats_updated', stats_updated_callback)
 
 func stats_updated_callback(key, _old_value, _value):
@@ -61,7 +52,7 @@ func upgrade():
 
 func generate_objects():
 	if level > 0:
-		var get_javelin_total = javelins.get_child_count()
+		var get_javelin_total = get_child_count()
 		var calc_spawns = (stats['base_ammo'] + player.get_stats('additional_attacks')) - get_javelin_total
 		
 		while calc_spawns > 0:
@@ -69,11 +60,11 @@ func generate_objects():
 			javelin_spawn.global_position = player.global_position
 			javelin_spawn.player = player
 			javelin_spawn.stats = stats
-			javelins.add_child(javelin_spawn)
+			add_child(javelin_spawn)
 			calc_spawns -= 1
 			
 		#Upgrade Javelin
-		var get_javelins = javelins.get_children()
+		var get_javelins = get_children()
 		for i in get_javelins:
 			if i.has_method("update_javelin"):
 				i.update_javelin()

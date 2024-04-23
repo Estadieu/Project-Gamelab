@@ -1,14 +1,7 @@
 extends Gun
 
 func _init():
-	super._init(
-		"res://Textures/Items/Weapons/ice_spear.png", 
-		"Ice Spear",
-		"res://Scenes/Level/Store/Objects/ice_spear.tscn"
-	)
-
 	default_level = {
-		"max_level": 4,
 		"price": 2,
 		"details": "A spear of ice is thrown at a random enemy",
 		"update": func (): base_ammo += 1,

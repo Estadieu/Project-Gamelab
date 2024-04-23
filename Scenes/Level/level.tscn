@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://du6qbgqucaqov"]
+[gd_scene load_steps=31 format=3 uid="uid://du6qbgqucaqov"]
 
 [ext_resource type="Script" path="res://Scenes/Level/level.gd" id="1_8dp8a"]
 [ext_resource type="Texture2D" uid="uid://cilnsjwsrc7pa" path="res://Textures/Bckround_Jeu.png" id="2_tdses"]
@@ -11,13 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bn23p23ckhmr2" path="res://Scenes/Level/Entities/Enemy/plane.tscn" id="10_t4lvr"]
 [ext_resource type="AudioStream" uid="uid://bbufl4r1ou1rw" path="res://Audio/Music/battleThemeA.mp3" id="11_4bope"]
 [ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="12_rec6w"]
-[ext_resource type="Script" path="res://Scenes/Level/_pause_panel.gd" id="13_wvsox"]
+[ext_resource type="PackedScene" uid="uid://cmn57mf6fs5jj" path="res://Scenes/Level/Store/store.tscn" id="13_38ef8"]
+[ext_resource type="Script" path="res://Scenes/Level/GUI/pause_panel.gd" id="13_wvsox"]
 [ext_resource type="PackedScene" uid="uid://dpufsaa3ciflg" path="res://Scenes/Level/Entities/Enemy/eagle.tscn" id="14_cr7hq"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="14_ykd8y"]
-[ext_resource type="PackedScene" uid="uid://cmn57mf6fs5jj" path="res://Scenes/Level/Store/store.tscn" id="15_x8ttt"]
 [ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="16_oxa8r"]
 [ext_resource type="AudioStream" uid="uid://bnv76nm5171dn" path="res://Audio/SoundEffect/Victory.wav" id="17_mg58d"]
 [ext_resource type="AudioStream" uid="uid://ca6physj6mqei" path="res://Audio/SoundEffect/Lose.ogg" id="18_ysp76"]
+[ext_resource type="PackedScene" uid="uid://6os28fy0kp78" path="res://Scenes/Level/GUI/pause_panel.tscn" id="19_7hoh0"]
 
 [sub_resource type="Resource" id="Resource_03m25"]
 script = ExtResource("6_uxld7")
@@ -91,6 +92,14 @@ enemy = ExtResource("10_t4lvr")
 enemy_num = 1
 enemy_spawn_delay = 0
 
+[sub_resource type="InputEventKey" id="InputEventKey_c31jl"]
+device = -1
+keycode = 69
+unicode = 69
+
+[sub_resource type="InputEventKey" id="InputEventKey_1d4aj"]
+keycode = 4194305
+
 [node name="Level" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_8dp8a")
@@ -114,6 +123,10 @@ metadata/_edit_lock_ = true
 process_mode = 1
 metadata/_edit_lock_ = true
 
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Javelins" type="Node2D" parent="Objects"]
+
 [node name="Sounds" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -123,6 +136,8 @@ stream = ExtResource("11_4bope")
 volume_db = -15.0
 autoplay = true
 script = ExtResource("12_rec6w")
+
+[node name="Store" parent="." instance=ExtResource("13_38ef8")]
 
 [node name="GUILayer" type="CanvasLayer" parent="."]
 
@@ -158,25 +173,55 @@ text = "0 nok"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Store" parent="GUILayer/GUI" instance=ExtResource("15_x8ttt")]
+[node name="StoreShortcuts" type="HBoxContainer" parent="GUILayer/GUI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -55.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
 
 [node name="DeathPanel" type="Panel" parent="GUILayer/GUI"]
 process_mode = 2
 visible = false
-layout_mode = 0
-offset_left = 230.0
-offset_top = -266.0
-offset_right = 430.0
-offset_bottom = -16.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_wvsox")
 
-[node name="lbl_Result" type="Label" parent="GUILayer/GUI/DeathPanel"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 50.0
+[node name="CenterContainer" type="CenterContainer" parent="GUILayer/GUI/DeathPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FlowContainer" type="FlowContainer" parent="GUILayer/GUI/DeathPanel/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="lbl_Result" type="Label" parent="GUILayer/GUI/DeathPanel/CenterContainer/FlowContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("16_oxa8r")
 text = "Result"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="btn_restart" parent="GUILayer/GUI/DeathPanel/CenterContainer/FlowContainer" instance=ExtResource("14_ykd8y")]
+layout_mode = 2
+text = "Restart"
+
+[node name="btn_exit" parent="GUILayer/GUI/DeathPanel/CenterContainer/FlowContainer" instance=ExtResource("14_ykd8y")]
+layout_mode = 2
+text = "Exit"
 
 [node name="snd_victory" type="AudioStreamPlayer" parent="GUILayer/GUI/DeathPanel"]
 unique_name_in_owner = true
@@ -188,24 +233,26 @@ unique_name_in_owner = true
 stream = ExtResource("18_ysp76")
 volume_db = -10.0
 
-[node name="btn_menu" parent="GUILayer/GUI/DeathPanel" instance=ExtResource("14_ykd8y")]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 200.0
-offset_right = 140.0
-offset_bottom = 230.0
-text = "Menu"
+[node name="StorePanel" parent="GUILayer/GUI" instance=ExtResource("19_7hoh0")]
+layout_mode = 1
+open_input = SubResource("InputEventKey_c31jl")
 
-[node name="PausePanel" type="Panel" parent="GUILayer/GUI"]
-process_mode = 2
-visible = false
+[node name="CenterContainer" type="CenterContainer" parent="GUILayer/GUI/StorePanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("13_wvsox")
+
+[node name="FlowContainer" type="FlowContainer" parent="GUILayer/GUI/StorePanel/CenterContainer"]
+layout_mode = 2
+alignment = 1
+vertical = true
+
+[node name="PausePanel" parent="GUILayer/GUI" instance=ExtResource("19_7hoh0")]
+layout_mode = 1
+open_input = SubResource("InputEventKey_1d4aj")
 
 [node name="CenterContainer" type="CenterContainer" parent="GUILayer/GUI/PausePanel"]
 layout_mode = 1
@@ -234,6 +281,8 @@ text = "Exit"
 [connection signal="coins_updated" from="Player" to="." method="display_coins"]
 [connection signal="player_death" from="Player" to="." method="_on_end_level"]
 [connection signal="player_death" from="Player" to="Sounds/snd_Music" method="_on_player_player_death"]
+[connection signal="click_end" from="GUILayer/GUI/DeathPanel/CenterContainer/FlowContainer/btn_restart" to="GUILayer/GUI/DeathPanel" method="_on_btn_restart_click_end"]
+[connection signal="click_end" from="GUILayer/GUI/DeathPanel/CenterContainer/FlowContainer/btn_exit" to="GUILayer/GUI/DeathPanel" method="_on_btn_exit_click_end"]
 [connection signal="click_end" from="GUILayer/GUI/PausePanel/CenterContainer/FlowContainer/btn_resume" to="GUILayer/GUI/PausePanel" method="_on_btn_resume_click_end"]
 [connection signal="click_end" from="GUILayer/GUI/PausePanel/CenterContainer/FlowContainer/btn_restart" to="GUILayer/GUI/PausePanel" method="_on_btn_restart_click_end"]
 [connection signal="click_end" from="GUILayer/GUI/PausePanel/CenterContainer/FlowContainer/btn_exit" to="GUILayer/GUI/PausePanel" method="_on_btn_exit_click_end"]

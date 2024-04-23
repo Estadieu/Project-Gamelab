@@ -9,7 +9,7 @@ class_name Enemy extends Entity
 @onready var hitBox = $HitBox
 
 var death_anim = preload("res://Scenes/Level/Entities/Enemy/explosion.tscn")
-var exp_gem = preload("res://Scenes/Level/Objects/experience_gem.tscn")
+var exp_gem = preload("res://Scenes/Level/Objects/coin.tscn")
 
 signal remove_from_array(object)
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cr4wh8k8gaysv"]
 
-[ext_resource type="Script" path="res://Scenes/Level/Store/Objects/javelin.gd" id="1_yq4ck"]
+[ext_resource type="Script" path="res://Scenes/Level/Objects/Bullet/javelin.gd" id="1_yq4ck"]
 [ext_resource type="Texture2D" uid="uid://d22bl2j2hb3d1" path="res://Textures/Items/Weapons/javelin_3_new.png" id="2_aqhs0"]
 [ext_resource type="AudioStream" uid="uid://ckro6v281rcab" path="res://Audio/SoundEffect/woosh.wav" id="3_2mp50"]
 

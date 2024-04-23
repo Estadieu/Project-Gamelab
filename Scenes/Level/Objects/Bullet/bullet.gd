@@ -1,9 +1,7 @@
-extends Area2D
-
-class_name Bullet
+class_name Bullet extends Area2D
 
 var stats = null
-var current_hp = null
+var hp = null
 
 var target = Vector2.ZERO
 var angle = Vector2.ZERO
@@ -15,7 +13,7 @@ func _ready():
 	angle = global_position.direction_to(target)
 	rotation = angle.angle() + deg_to_rad(135)
 	
-	current_hp = stats['base_hp']
+	hp = stats['base_hp']
 
 	var tween = create_tween()
 	tween \
@@ -28,9 +26,9 @@ func _physics_process(delta):
 	position += angle * delta * stats['speed']
 
 func enemy_hit(charge = 1):
-	current_hp -= charge
+	hp -= charge
 	
-	if current_hp <= 0:
+	if hp <= 0:
 		remove()
 
 

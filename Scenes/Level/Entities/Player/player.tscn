@@ -20,8 +20,10 @@ collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_37q80")
 max_hp = 80
+speed = 30.0
 
 [node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_ojjuc")
 
 [node name="HealthBar" parent="." index="1"]
@@ -41,16 +43,13 @@ grow_vertical = 0
 shape = SubResource("RectangleShape2D_71ee1")
 
 [node name="HurtBox" parent="." index="4"]
+visible = false
 collision_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
 
-[node name="ObjectsLayer" type="Node2D" parent="." index="7"]
-unique_name_in_owner = true
-
-[node name="Javelins" type="Node2D" parent="ObjectsLayer" index="0"]
-
-[node name="Areas" type="Node2D" parent="." index="8"]
+[node name="Areas" type="Node2D" parent="." index="7"]
+visible = false
 
 [node name="GrabArea" type="Area2D" parent="Areas" index="0"]
 collision_layer = 0

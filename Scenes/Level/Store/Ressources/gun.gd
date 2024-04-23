@@ -1,28 +1,13 @@
-extends Item
+class_name Gun extends Item
 
-class_name Gun
-
-var stats = {}
-
-var generic_bullet
-var generic_timer = preload("res://Scenes/Level/Utility/attack_timer.tscn")
-
-var base_ammo = 0
+@export var generic_bullet : PackedScene = null
+@export var base_ammo      : int         = 0
 
 @onready var timer = get_node('Timer')
 
-func _init(p_icon = null, p_displayname = null, p_bullet = null):
-	super._init(p_icon, p_displayname)
-	
-	if p_bullet == null:
-		# TODO: default value
-		return
-	
-	generic_bullet = load(p_bullet)
+var stats = {}
 
 func _ready():
-	super._ready()
-	
 	timer.connect("start_signal" , _on_start )
 	timer.connect("attack_signal", _on_attack)
 	timer.connect("end_signal"   , _on_end   )
@@ -30,9 +15,9 @@ func _ready():
 	timer.start()
 
 func _on_start():
-		if level > 0:
-			timer.ammo = base_ammo + player.get_stats('additional_attacks')
-	
+	if level > 0:
+		timer.ammo = base_ammo + player.get_stats('additional_attacks')
+
 func _on_end():
 	timer.wait_time = stats['burst_cooldown'] * max(1 - player.get_stats('spell_cooldown'), 0.01)
 
