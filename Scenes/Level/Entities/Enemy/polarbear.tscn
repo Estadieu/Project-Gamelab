@@ -78,7 +78,6 @@ offset_top = -30.0
 offset_bottom = -29.0
 
 [node name="CollisionShape2D" parent="." index="2"]
-visible = false
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_1obc2")
 debug_color = Color(0, 0, 0, 0.419608)
@@ -89,15 +88,9 @@ libraries = {
 "PolarBear": SubResource("AnimationLibrary_0r2ub")
 }
 
-[node name="HurtBox" parent="." index="4"]
-visible = false
-
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("CircleShape2D_p72hr")
 debug_color = Color(0, 1, 0, 0.419608)
-
-[node name="HitBox" parent="." index="6"]
-visible = false
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("CircleShape2D_qydki")

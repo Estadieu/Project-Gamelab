@@ -26,7 +26,7 @@
 script = ExtResource("6_uxld7")
 time_start = 0
 time_end = 30
-enemy = ExtResource("7_g0iqi")
+enemy = ExtResource("5_87b22")
 enemy_num = 1
 enemy_spawn_delay = 0
 
@@ -276,7 +276,6 @@ grow_vertical = 2
 [node name="FlowContainer" type="FlowContainer" parent="GUILayer/GUI/StorePanel/CenterContainer"]
 layout_mode = 2
 alignment = 1
-vertical = true
 
 [node name="PausePanel" parent="GUILayer/GUI" instance=ExtResource("19_7hoh0")]
 layout_mode = 1
@@ -306,6 +305,7 @@ text = "Restart"
 layout_mode = 2
 text = "Exit"
 
+[connection signal="changetime" from="EnemySpawner" to="." method="update_time"]
 [connection signal="coins_updated" from="Player" to="." method="display_coins"]
 [connection signal="player_death" from="Player" to="." method="_on_end_level"]
 [connection signal="player_death" from="Player" to="Sounds/snd_Music" method="_on_player_player_death"]

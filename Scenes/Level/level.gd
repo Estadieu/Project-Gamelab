@@ -1,6 +1,7 @@
 extends Node2D
 
-var itemRect = preload("res://Scenes/Level/GUI/Items/item_rect.tscn")
+var itemRect    = preload("res://Scenes/Level/GUI/Items/item_rect.tscn"   )
+var itemDetails = preload("res://Scenes/Level/GUI/Items/item_details.tscn")
 
 @onready var tree = get_tree()
 
@@ -41,7 +42,7 @@ func _ready():
 		storeShorts.add_child(shortcut)
 	
 		# Details
-		details = itemRect.instantiate()
+		details = itemDetails.instantiate()
 		details.item = item
 		
 		storeDetails.add_child(details)
@@ -50,14 +51,14 @@ func _ready():
 	store.connect_player(player)
 	
 	# Game initialization
-	player.coins = 1000
+	player.coins = 500
 	store.get_item("Ice Spear").upgrade()
 
 func _process(_delta):
 	pass
 
 func _unhandled_input(event):
-	if not deathPanel.visible and event is InputEventKey and event.is_pressed():
+	if not deathPanel.visible and event is InputEventKey and event.is_released():
 		if tree.paused:
 			#close
 			if event.keycode == KEY_ESCAPE:
@@ -67,12 +68,18 @@ func _unhandled_input(event):
 				tree.paused = false
 				
 			else:
-				for panel in pausePanels:
-					if panel.open_input.keycode == event.keycode:
-						panel.visible = not panel.visible
-						tree.paused   =     panel.visible
-					else:
+				var i = 0
+				while i < len(pausePanels) and pausePanels[i].open_input.keycode != event.keycode:
+					i += 1
+					
+				if i < len(pausePanels):
+					var open = pausePanels[i].visible
+					
+					for panel in pausePanels:
 						panel.visible = false
+					
+					pausePanels[i].visible = not open
+					tree.paused = pausePanels[i].visible
 				
 		else:
 			# Open
@@ -84,6 +91,9 @@ func _unhandled_input(event):
 
 func update_time(argtime = 0):
 	_time = argtime
+	
+	if _time >= 300:
+		player.hp = 0
 	
 	var minutes  = int(_time / 60.0)
 	var secondes = _time % 60

@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://Scenes/Level/Map/grass.gd" id="1_3h630"]
 
 [node name="Grass" type="Sprite2D"]
+y_sort_enabled = true
 script = ExtResource("1_3h630")
