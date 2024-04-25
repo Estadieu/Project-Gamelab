@@ -34,16 +34,18 @@ func _physics_process(_delta):
 	if direction == Vector2.ZERO:
 		anim.stop(true)
 	else:
-		anim.play("walk")
+		flip_entity(direction)
 		
 		last_movement = direction
+		
 
 	velocity = direction * speed + knockback
 
-	sprite.flip_h = (direction.x == 0 && sprite.flip_h) || (direction.x > 0)
-
 	move_and_slide()
 	
+func flip_entity(direction):
+	anim.play("walk")
+	sprite.flip_h = (direction.x == 0 && sprite.flip_h) || (direction.x < 0)
 
 func _on_hurt_box_hurt(p_damage, angle, knockback_amount):
 	hp -= clamp(p_damage - armor, 0.0, 999.0)

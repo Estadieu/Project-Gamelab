@@ -29,6 +29,10 @@ func get_direction():
 	var y_mov = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
 	return Vector2(x_mov, y_mov)
+	
+func flip_entity(direction):
+	anim.play("Player/walk_right")
+	sprite.flip_h = (direction.x == 0 && sprite.flip_h) || (direction.x < 0)
 
 func set_stats(key, value):
 	if _stats[key] != value:

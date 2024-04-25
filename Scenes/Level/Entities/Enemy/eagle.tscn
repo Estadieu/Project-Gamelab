@@ -1,28 +1,92 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpufsaa3ciflg"]
+[gd_scene load_steps=10 format=3 uid="uid://dpufsaa3ciflg"]
 
 [ext_resource type="PackedScene" uid="uid://c3yfks8k7m4r" path="res://Scenes/Level/Entities/Enemy/enemy.tscn" id="1_rmo7n"]
-[ext_resource type="Texture2D" uid="uid://blpjl8raquq2s" path="res://Textures/Enemy/juggernaut.png" id="2_kwlt7"]
+[ext_resource type="Texture2D" uid="uid://dlb23u6ruq28w" path="res://Textures/Enemy/eagle_test.png" id="2_hl45v"]
+[ext_resource type="Script" path="res://Scenes/Level/Entities/Enemy/eagle.gd" id="2_uaa3n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxjq6"]
+
+[sub_resource type="Animation" id="Animation_xfnyu"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_a53pv"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_regpg"]
+_data = {
+"RESET": SubResource("Animation_xfnyu"),
+"walk": SubResource("Animation_a53pv")
+}
+
+[sub_resource type="Animation" id="Animation_eb70e"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nyyai"]
+_data = {
+"walk": SubResource("Animation_eb70e")
+}
 
 [node name="Eagle" instance=ExtResource("1_rmo7n")]
+script = ExtResource("2_uaa3n")
 damage = 10.0
 experience = 100
-knockback_recovery = 20.0
 speed = 40.0
+knockback_recovery = 20.0
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_kwlt7")
+position = Vector2(0, -49)
+scale = Vector2(2, 2)
+texture = ExtResource("2_hl45v")
+hframes = 4
+frame = 0
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
+visible = false
 position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_wxjq6")
 
-[node name="HurtBox" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_regpg"),
+"Eagle": SubResource("AnimationLibrary_nyyai")
+}
+
+[node name="HurtBox" parent="." index="4"]
+visible = false
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(0, 2)
 
-[node name="HitBox" parent="." index="4"]
+[node name="HitBox" parent="." index="6"]
+visible = false
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
