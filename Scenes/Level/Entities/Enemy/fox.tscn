@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://2k5j8m7ei1u"]
+[gd_scene load_steps=12 format=3 uid="uid://2k5j8m7ei1u"]
 
 [ext_resource type="PackedScene" uid="uid://c3yfks8k7m4r" path="res://Scenes/Level/Entities/Enemy/enemy.tscn" id="1_7w32n"]
 [ext_resource type="Texture2D" uid="uid://t2l5wo14axwn" path="res://Textures/Enemy/fox_test.png" id="2_6ivd7"]
 [ext_resource type="Script" path="res://Scenes/Level/Entities/Enemy/fox.gd" id="2_7wduj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atulp"]
+size = Vector2(34, 8)
 
 [sub_resource type="Animation" id="Animation_xfnyu"]
 length = 0.001
@@ -52,6 +53,12 @@ _data = {
 "walk": SubResource("Animation_0km6s")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_65u0s"]
+radius = 43.0465
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7kp0"]
+radius = 33.0
+
 [node name="Fox" instance=ExtResource("1_7w32n")]
 script = ExtResource("2_7wduj")
 damage = 5.0
@@ -60,16 +67,18 @@ speed = 16.0
 knockback_recovery = 10.0
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(1, -29)
+position = Vector2(3.55271e-15, -34)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_6ivd7")
 hframes = 6
 vframes = 6
 frame = 9
 
+[node name="HealthBar" parent="." index="1"]
+offset_top = -25.0
+offset_bottom = -24.0
+
 [node name="CollisionShape2D" parent="." index="2"]
-visible = false
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_atulp")
 
 [node name="AnimationPlayer" parent="." index="3"]
@@ -80,19 +89,15 @@ libraries = {
 
 [node name="HurtBox" parent="." index="4"]
 visible = false
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0, 0.5)
+shape = SubResource("CircleShape2D_65u0s")
 
 [node name="HitBox" parent="." index="6"]
 visible = false
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_w7kp0")
 
 [editable path="HurtBox"]
 [editable path="HitBox"]

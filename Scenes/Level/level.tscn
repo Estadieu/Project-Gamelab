@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://du6qbgqucaqov"]
+[gd_scene load_steps=33 format=3 uid="uid://du6qbgqucaqov"]
 
 [ext_resource type="Script" path="res://Scenes/Level/level.gd" id="1_8dp8a"]
 [ext_resource type="Texture2D" uid="uid://bgjs5ooj5jncy" path="res://Textures/Map/bg_test.png" id="2_8ednx"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Scenes/Level/GUI/pause_panel.gd" id="13_wvsox"]
 [ext_resource type="PackedScene" uid="uid://dpufsaa3ciflg" path="res://Scenes/Level/Entities/Enemy/eagle.tscn" id="14_cr7hq"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="14_ykd8y"]
+[ext_resource type="Texture2D" uid="uid://b88be0g84dwdw" path="res://Textures/GUI/pixil-frame-0(3).png" id="16_8nybh"]
 [ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="16_oxa8r"]
 [ext_resource type="AudioStream" uid="uid://bnv76nm5171dn" path="res://Audio/SoundEffect/Victory.wav" id="17_mg58d"]
 [ext_resource type="AudioStream" uid="uid://ca6physj6mqei" path="res://Audio/SoundEffect/Lose.ogg" id="18_ysp76"]
@@ -25,7 +26,7 @@
 script = ExtResource("6_uxld7")
 time_start = 0
 time_end = 30
-enemy = ExtResource("5_87b22")
+enemy = ExtResource("7_g0iqi")
 enemy_num = 1
 enemy_spawn_delay = 0
 
@@ -103,15 +104,20 @@ keycode = 4194305
 
 [node name="Level" type="Node2D"]
 process_mode = 3
+y_sort_enabled = true
 script = ExtResource("1_8dp8a")
 
-[node name="Map" type="Sprite2D" parent="."]
+[node name="Map" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("3_mx7s1")
+
+[node name="Background" type="Sprite2D" parent="Map"]
+z_index = -1
 texture_filter = 2
 texture_repeat = 2
 texture = ExtResource("2_8ednx")
 region_enabled = true
 region_rect = Rect2(-4000, -4000, 4000, 4000)
-script = ExtResource("3_mx7s1")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_hxm1k")]
 process_mode = 1
@@ -174,16 +180,37 @@ text = "0 nok"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StoreShortcuts" type="HBoxContainer" parent="GUILayer/GUI"]
+[node name="StoreShorts" type="Control" parent="GUILayer/GUI"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -55.0
-offset_bottom = -5.0
+offset_top = -64.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/StoreShorts"]
+texture_repeat = 2
+position = Vector2(320, 32)
+texture = ExtResource("16_8nybh")
+region_enabled = true
+region_rect = Rect2(0, 0, 356, 48)
+
+[node name="ItemList" type="HBoxContainer" parent="GUILayer/GUI/StoreShorts"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -20.0
+offset_right = 174.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
 alignment = 1
 
 [node name="DeathPanel" type="Panel" parent="GUILayer/GUI"]

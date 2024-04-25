@@ -7,7 +7,7 @@ var itemRect = preload("res://Scenes/Level/GUI/Items/item_rect.tscn")
 @onready var player = get_node("Player")
 @onready var store  = get_node("Store")
 
-@onready var storeShorts  = get_node("GUILayer/GUI/StoreShortcuts")
+@onready var storeShorts  = get_node("GUILayer/GUI/StoreShorts/ItemList")
 @onready var storeDetails = get_node("GUILayer/GUI/StorePanel/CenterContainer/FlowContainer")
 
 @onready var labelTimer = get_node("GUILayer/GUI/LabelTimer")

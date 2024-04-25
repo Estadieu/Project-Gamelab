@@ -31,7 +31,11 @@ func get_direction():
 	return Vector2(x_mov, y_mov)
 	
 func flip_entity(direction):
-	anim.play("Player/walk_right")
+	if direction == Vector2.ZERO:
+		anim.play("Player/idle")
+	else:
+		anim.play("Player/walk")
+		
 	sprite.flip_h = (direction.x == 0 && sprite.flip_h) || (direction.x < 0)
 
 func set_stats(key, value):

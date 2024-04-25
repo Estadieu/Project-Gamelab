@@ -31,13 +31,10 @@ func _physics_process(_delta):
 	
 	var direction = get_direction().normalized()
 	
-	if direction == Vector2.ZERO:
-		anim.stop(true)
-	else:
-		flip_entity(direction)
-		
+	if direction != Vector2.ZERO:
 		last_movement = direction
 		
+	flip_entity(direction)
 
 	velocity = direction * speed + knockback
 
