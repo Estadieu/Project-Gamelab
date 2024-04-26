@@ -72,7 +72,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7corh"]
-radius = 31.0161
+radius = 26.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mdget"]
 radius = 50.0
@@ -89,7 +89,7 @@ y_sort_enabled = true
 collision_layer = 3
 collision_mask = 5
 script = ExtResource("1_37q80")
-max_hp = 80
+max_hp = 100
 speed = 30.0
 
 [node name="Sprite2D" parent="." index="0"]
@@ -125,11 +125,9 @@ libraries = {
 }
 
 [node name="HurtBox" parent="." index="4"]
-visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-visible = false
 shape = SubResource("CircleShape2D_7corh")
 
 [node name="Camera2D" type="Camera2D" parent="." index="6"]

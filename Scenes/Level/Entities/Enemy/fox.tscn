@@ -63,8 +63,9 @@ radius = 25.0799
 script = ExtResource("2_7wduj")
 damage = 5.0
 experience = 5
-speed = 16.0
-knockback_recovery = 10.0
+max_hp = 50
+speed = 40.0
+knockback_recovery = 5.0
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(3.55271e-15, -34)
