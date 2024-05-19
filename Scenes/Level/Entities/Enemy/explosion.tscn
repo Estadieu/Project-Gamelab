@@ -49,9 +49,10 @@ hframes = 4
 vframes = 4
 script = ExtResource("2_d6gja")
 
-[node name="snd_explosion" type="AudioStreamPlayer2D" parent="."]
+[node name="snd_explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wsm1y")
-pitch_scale = 0.5
+volume_db = -10.0
+pitch_scale = 1.57
 autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -59,4 +60,5 @@ libraries = {
 "": SubResource("AnimationLibrary_w1lln")
 }
 
+[connection signal="finished" from="snd_explosion" to="." method="_on_sound_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
