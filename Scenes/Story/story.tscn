@@ -29,7 +29,7 @@ offset_left = 44.0
 offset_top = 91.0
 offset_right = 603.0
 offset_bottom = 259.0
-theme_override_colors/font_color = Color(0.337255, 0.0980392, 0.0117647, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 11
 text = "You take on the role of a French student on Erasmus,thrust into the unforgiving environment of Norway. 
 You'll encounter a myriad of foes, from polar bears to eagles,each more dangerous than the last.
