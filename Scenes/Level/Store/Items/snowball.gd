@@ -2,19 +2,19 @@ extends Gun
 
 func _init():
 	default_level = {
-		"price": 1,
+		"price": 4,
 		"details": "A snowball is created and random heads somewhere in the players direction",
 		"update": func (): base_ammo += 1,
 	}
 	
 	levels = {
 		'2': {
-			"price": 1,
+			"price": 5,
 			"details": "The snow ball cooldown is reduced by 0.5 seconds",
 			"update": func (): stats['burst_cooldown'] += 1,
 		},
 		'4': {
-			"price": 1,
+			"price": 15,
 			"details": "A snowball is created and random heads somewhere in the players direction",
 			"update": func ():
 				base_ammo += 1

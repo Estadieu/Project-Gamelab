@@ -18,9 +18,13 @@ var player = null :
 		player = value
 		_connected()
 	
-var locked = true
+var locked = true :
+	set(value):
+		locked = value
+		emit_signal("lock_updated")
 
 signal updated
+signal lock_updated
 
 func _connected():
 	pass

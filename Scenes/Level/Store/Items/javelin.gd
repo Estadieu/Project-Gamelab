@@ -6,19 +6,19 @@ var javelin = preload("res://Scenes/Level/Objects/Bullet/javelin.tscn")
 
 func _init():
 	default_level = {
-		"price": 1,
+		"price": 5,
 		"details": "The javelin will now attack an additional enemy per attack",
 		"update": func (): stats['paths'] += 1,
 	}
 	
 	levels = {
 		'0': {
-			"price": 1,
+			"price": 5,
 			"details": "A magical javelin will follow you attacking enemies in a straight line",
 			"update": func (): stats['base_ammo'] += 1,
 		},
 		'3': {
-			"price": 1,
+			"price": 20,
 			"details": "The javelin will now attack an additional enemy per attack",
 			"update": func ():
 				stats['paths'] += 1

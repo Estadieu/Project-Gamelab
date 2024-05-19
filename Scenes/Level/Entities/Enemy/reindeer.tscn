@@ -54,14 +54,15 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6j3cd"]
-radius = 52.1536
+radius = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bxucf"]
-radius = 41.0
+radius = 26.0192
 
 [node name="Reindeer" instance=ExtResource("1_ultay")]
 script = ExtResource("2_ao16j")
-damage = 2.0
+damage = 4.0
+max_hp = 20
 speed = 30.0
 
 [node name="Sprite2D" parent="." index="0"]

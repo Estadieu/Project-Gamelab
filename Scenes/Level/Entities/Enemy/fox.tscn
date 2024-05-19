@@ -54,17 +54,18 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_65u0s"]
-radius = 43.0465
+radius = 33.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7kp0"]
-radius = 33.0
+radius = 25.0799
 
 [node name="Fox" instance=ExtResource("1_7w32n")]
 script = ExtResource("2_7wduj")
 damage = 5.0
 experience = 5
-speed = 16.0
-knockback_recovery = 10.0
+max_hp = 50
+speed = 40.0
+knockback_recovery = 5.0
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(3.55271e-15, -34)
@@ -87,14 +88,8 @@ libraries = {
 "Fox": SubResource("AnimationLibrary_h4uhu")
 }
 
-[node name="HurtBox" parent="." index="4"]
-visible = false
-
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("CircleShape2D_65u0s")
-
-[node name="HitBox" parent="." index="6"]
-visible = false
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("CircleShape2D_w7kp0")

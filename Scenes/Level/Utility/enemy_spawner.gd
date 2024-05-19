@@ -8,9 +8,6 @@ extends Node2D
 
 signal changetime(time)
 
-func _ready():
-	connect("changetime",Callable(get_parent(), "update_time"))
-
 func _on_timer_timeout():
 	time += 1
 	var enemy_spawns = spawns
