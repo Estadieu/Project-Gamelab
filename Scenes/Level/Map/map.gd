@@ -2,9 +2,9 @@ extends Node2D
 
 @onready var background = get_node("Background")
 
-@export var nb_rock  : int = 400
+@export var nb_rock  : int = 350
 @export var nb_grass : int = 2000
-@export var border_size : int = 65
+@export var border_size : int = 10
 
 var rock  = preload("res://Scenes/Level/Map/rock.tscn")
 var grass = preload("res://Scenes/Level/Map/grass.tscn")
@@ -37,14 +37,15 @@ func add_water_border():
 	var half_height = int(bg_size.y / 2)
 	
 	# Ajouter de l'eau en haut et en bas
-	for x in range(-half_width - border_size, half_width + border_size, 64):
+	
+	for x in range(-half_width - border_size, half_width + border_size, 32):
 		for y in [-half_height - border_size, half_height + border_size]:
 			var new_water = water.instantiate()
 			new_water.position = Vector2(x, y)
 			add_child(new_water)
 			
 	# Ajouter de l'eau à gauche et à droite
-	for y in range(-half_height - border_size, half_height + border_size, 64):
+	for y in range(-half_height - border_size, half_height + border_size, 32):
 		for x in [-half_width - border_size, half_width + border_size]:
 			var new_water = water.instantiate()
 			new_water.position = Vector2(x, y)
