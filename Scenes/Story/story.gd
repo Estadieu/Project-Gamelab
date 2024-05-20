@@ -3,7 +3,7 @@ extends Control
 var level = "res://Scenes/Level/level.tscn"
 
 # Variables pour contrôler le scrolling
-var scroll_speed = 100  # Pixels par seconde
+var scroll_speed = 200  # Pixels par seconde
 var label2: Label
 
 func _ready():

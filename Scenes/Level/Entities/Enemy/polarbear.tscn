@@ -62,8 +62,10 @@ resource_local_to_scene = true
 radius = 29.0172
 
 [node name="PolarBear" instance=ExtResource("1_5h7lj")]
-collision_mask = 7
 script = ExtResource("2_ymc40")
+damage = 4.0
+max_hp = 20
+speed = 30.0
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(8.47033e-22, -35)

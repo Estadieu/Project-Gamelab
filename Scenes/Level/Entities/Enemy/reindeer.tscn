@@ -61,9 +61,6 @@ radius = 26.0192
 
 [node name="Reindeer" instance=ExtResource("1_ultay")]
 script = ExtResource("2_ao16j")
-damage = 4.0
-max_hp = 20
-speed = 30.0
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(-2.01948e-28, -36)

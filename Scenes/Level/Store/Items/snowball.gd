@@ -13,6 +13,11 @@ func _init():
 			"details": "The snow ball cooldown is reduced by 0.5 seconds",
 			"update": func (): stats['burst_cooldown'] += 1,
 		},
+		'3': {
+			"price": 10,
+			"details": "A snowball is created and random heads somewhere in the players direction",
+			"update": func (): base_ammo += 1,
+		},
 		'4': {
 			"price": 15,
 			"details": "A snowball is created and random heads somewhere in the players direction",

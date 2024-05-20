@@ -8,6 +8,8 @@
 size = Vector2(20, 16)
 
 [node name="Enemy" instance=ExtResource("1_c20vu")]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("2_8nfkj")
 damage = 1.0
 experience = 1

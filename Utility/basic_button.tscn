@@ -1,32 +1,39 @@
 [gd_scene load_steps=7 format=3 uid="uid://b7c7gsdx2rkjm"]
 
 [ext_resource type="AudioStream" uid="uid://bwahs2mtjus02" path="res://Audio/GUI/hover.wav" id="1_2ggfj"]
-[ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="1_5s5k8"]
 [ext_resource type="Script" path="res://Utility/basic_button.gd" id="1_t2e60"]
 [ext_resource type="AudioStream" uid="uid://dobpqbspunihg" path="res://Audio/GUI/click.wav" id="2_jbqnc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5lyo"]
 bg_color = Color(0.337255, 0.0980392, 0.0117647, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uncoq"]
 bg_color = Color(0.337255, 0.0980392, 0.0117647, 0.576471)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fs2i"]
+bg_color = Color(0.337255, 0.0980392, 0.0117647, 0.196078)
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(80, 30)
 offset_right = 8.0
 offset_bottom = 8.0
-theme_override_fonts/font = ExtResource("1_5s5k8")
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_y5lyo")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uncoq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0fs2i")
 text = "Example"
 script = ExtResource("1_t2e60")
 

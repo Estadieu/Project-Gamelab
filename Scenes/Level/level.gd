@@ -40,18 +40,18 @@ func _ready():
 		shortcut.item = item
 		
 		storeShorts.add_child(shortcut)
-	
+
 		# Details
 		details = itemDetails.instantiate()
 		details.item = item
-		
+
 		storeDetails.add_child(details)
 	
 	# Connections
 	store.connect_player(player)
 	
 	# Game initialization
-	player.coins = 500
+	player.coins = 5
 	store.get_item("Ice Spear").upgrade()
 
 func _process(_delta):
