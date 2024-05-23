@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3iyghrpftdj7"]
 
 [ext_resource type="PackedScene" uid="uid://d37oo4vu2xxy0" path="res://Scenes/Level/Entity/Bullet/bullet.tscn" id="1_jh1jc"]
-[ext_resource type="Texture2D" uid="uid://bvy7inhrwbkhb" path="res://Textures/Level/Store/baguette.png" id="2_rxjru"]
+[ext_resource type="Texture2D" uid="uid://1wsbm0peiaxv" path="res://Textures/Level/Store/baguette.png" id="2_rxjru"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awgjl"]
 size = Vector2(4.243, 32.527)

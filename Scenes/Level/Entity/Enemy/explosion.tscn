@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfae4g65cgrp3"]
 
-[ext_resource type="Texture2D" uid="uid://danfgtyjc33uf" path="res://Textures/Level/Enemy/sprites_explosion.png" id="1_xvhqw"]
+[ext_resource type="Texture2D" uid="uid://cudyxan4m8ou8" path="res://Textures/Level/Enemy/sprites_explosion.png" id="1_xvhqw"]
 [ext_resource type="Script" path="res://Scenes/Level/Entity/Enemy/explosion.gd" id="2_d6gja"]
-[ext_resource type="AudioStream" uid="uid://dtat7gc2un7t2" path="res://Audio/Level/snd_explosion.ogg" id="2_wsm1y"]
+[ext_resource type="AudioStream" uid="uid://d0tdubs6anuo4" path="res://Audio/Level/snd_explosion.ogg" id="2_wsm1y"]
 
 [sub_resource type="Animation" id="Animation_064th"]
 length = 0.001
@@ -51,7 +51,7 @@ script = ExtResource("2_d6gja")
 
 [node name="snd_explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wsm1y")
-volume_db = -10.0
+volume_db = 9.646
 pitch_scale = 1.57
 autoplay = true
 

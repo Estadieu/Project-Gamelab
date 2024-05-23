@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://gns8q4k3hjha"]
+[gd_scene load_steps=7 format=3 uid="uid://gns8q4k3hjha"]
 
 [ext_resource type="PackedScene" uid="uid://d37oo4vu2xxy0" path="res://Scenes/Level/Entity/Bullet/bullet.tscn" id="1_excvj"]
-[ext_resource type="Texture2D" uid="uid://wlqfxlry7jwd" path="res://Textures/Level/Store/snowball.png" id="2_qokmu"]
+[ext_resource type="Texture2D" uid="uid://drhxu4et40vvv" path="res://Textures/Level/Store/snowball.png" id="2_qokmu"]
+[ext_resource type="AudioStream" uid="uid://d1cjyef8rxre4" path="res://Audio/Level/snd_snowball.mp3" id="3_l1ws6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wdsrq"]
 radius = 12.0
@@ -33,3 +34,8 @@ visible = false
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("CircleShape2D_0scbi")
+
+[node name="snd_snowball" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("3_l1ws6")
+volume_db = 5.621
+autoplay = true

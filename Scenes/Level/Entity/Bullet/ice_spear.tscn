@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://g0cnchlg7on"]
+[gd_scene load_steps=7 format=3 uid="uid://g0cnchlg7on"]
 
 [ext_resource type="PackedScene" uid="uid://d37oo4vu2xxy0" path="res://Scenes/Level/Entity/Bullet/bullet.tscn" id="1_3ahun"]
-[ext_resource type="Texture2D" uid="uid://3d6lb2hjfl2o" path="res://Textures/Level/Store/ice_spear.png" id="2_5w5lv"]
+[ext_resource type="Texture2D" uid="uid://jll7ati8avhs" path="res://Textures/Level/Store/ice_spear.png" id="2_5w5lv"]
+[ext_resource type="AudioStream" uid="uid://cp85rynv6qqp2" path="res://Audio/Level/snd_ice_spear.wav" id="3_6ps67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uq17t"]
 size = Vector2(6.364, 33.234)
@@ -32,3 +33,8 @@ shape = SubResource("RectangleShape2D_6u64a")
 position = Vector2(0.5, -1)
 rotation = -0.785398
 shape = SubResource("RectangleShape2D_4vgpe")
+
+[node name="snd_icespear" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("3_6ps67")
+volume_db = -19.677
+autoplay = true
