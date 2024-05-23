@@ -4,10 +4,15 @@ const duration = [ 30, 31, 30, 31, 31 ]
 const months = [ "september", "october", "november", "december", "january" ]
 
 const stories = {
-	"5": "Oh, un renne, il a l'air inoffensif",
-	"8": "J'ai menti, cours pour ta vie !!",
-	"11": "Si tu veux t'équiper c'est E d'ailleurs",
-	"15": ""
+	"5": "Oh, a reindeer, it looks harmless",
+	"8": "It's an invasion, I have to run !!",
+	"11": "If you want to equip yourself press E",
+	"15": "It seems to be getting darker and darker.",
+	"20":"and the danger is increasing day by day.",
+	"25": "",
+	"190": "Wow foxes they are so fast",
+	"210": "It's really black, I can't see anything anymore",
+	"245": "",
 }
 
 func _ready():
@@ -22,7 +27,7 @@ func _on_time_updated(time):
 		return
 
 	var day = round((time % 60) * duration[month] / 60) + 1
-	
+
 	text = str(day) + " " + months[month]
 
 	# Story
@@ -32,4 +37,3 @@ func _on_time_updated(time):
 		tween.tween_callback(func(): $Story.text = stories[str(time)])
 		tween.tween_property($Story, "modulate", Color(0, 0, 0, 1.0), 0.25)
 		tween.play()
-		
