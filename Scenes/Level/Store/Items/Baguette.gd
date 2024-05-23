@@ -46,10 +46,15 @@ func _on_path_end():
 
 	remaining_paths -= 1
 
+	var targets = player.get_targets()
+
 	for baguette in baguettes:
-		set_target(baguette)
+		baguette.target = targets.pick_random()
 		
 	$PathTimer.start()
 
-func set_target(new_bullet):
-	new_bullet.target = player.get_random_target()
+func get_targets(count):
+	var targets = player.get_targets()
+	targets.shuffle()
+	
+	return targets

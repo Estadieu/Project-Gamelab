@@ -15,6 +15,11 @@ func _init():
 		}
 	}
 
+
+func get_targets(count):
+	var targets = []
 	
-func set_target(new_bullet):
-	new_bullet.direction = player.last_movement
+	for _i in range(count):
+		targets.append(player.global_position + player.last_movement)
+
+	return targets

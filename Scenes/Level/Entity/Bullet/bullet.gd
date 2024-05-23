@@ -7,7 +7,10 @@ var target = null :
 		target = value
 		
 		if target != null:
-			direction = global_position.direction_to(target.global_position)
+			if target is Entity:
+				direction = global_position.direction_to(target.global_position)
+			elif target is Vector2:
+				direction = global_position.direction_to(target)
 			 
 var direction = null
 

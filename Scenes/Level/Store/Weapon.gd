@@ -17,11 +17,14 @@ var cooldown : float :
 
 var ammo : int
 
+var current_bullet = 0
+var targets = []
+
 func setup_stats():
 	if player != null:
 		$BurstTimer.wait_time = cooldown
 
-func generate():
+func generate(target):	
 	var new_bullet = bullet.instantiate()
 
 	# Stats
@@ -29,11 +32,7 @@ func generate():
 		new_bullet[key] = base_stats[key]
 
 	new_bullet.scale *= player.spell_size
-
-	# Get target & position
-	set_target(new_bullet)
-	
-	if new_bullet.target == null and new_bullet.direction == null: return null
+	new_bullet.target = target
 
 	return new_bullet
 
@@ -41,24 +40,34 @@ func _on_burst_start():
 	$BurstTimer.stop()
 	
 	ammo = base_ammo + (player.spell_additionnal if level > 0 else 0)
+	
+	current_bullet = 0
+	targets = get_targets(ammo)
+	
 	_on_shot_start()
 
 func _on_burst_end():
 	$ShotTimer.stop()
 	$BurstTimer.start()
 
+
 func _on_shot_start():
-	if ammo > 0:
+	while current_bullet < targets.size() && targets[current_bullet] == null:
+		current_bullet += 1
+	
+	if ammo > 0 && current_bullet < targets.size():
 		ammo -= 1
 		
-		var new_bullet = generate()
+		var new_bullet = generate(targets[current_bullet])
 	
 		if new_bullet != null:
 			map.add_child(new_bullet)
+			
+		current_bullet += 1
 		
-	if ammo > 0:
+	if ammo > 0 && current_bullet < targets.size():
 		$ShotTimer.start()
 	else:
 		_on_burst_end()
 
-func set_target(_new_bullet): pass
+func get_targets(count): return []

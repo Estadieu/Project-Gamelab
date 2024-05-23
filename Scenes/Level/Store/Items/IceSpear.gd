@@ -21,21 +21,11 @@ func _init():
 		}
 	}
 
-func set_target(new_bullet):
+func sort_closest(a, b): 
+	return player.global_position.distance_to(a.global_position) <= player.global_position.distance_to(b.global_position)
+
+func get_targets(count):
 	var targets = player.get_targets()
-	
-	if targets.size() == 0:
-		return null
+	targets.sort_custom(sort_closest)
 
-	var near_target   = targets[0]
-	var near_distance = player.global_position.distance_to(targets[0].global_position)
-	var distance
-
-	for enemy in targets:
-		distance = player.global_position.distance_to(enemy.global_position)
-		
-		if distance < near_distance:
-			near_distance = distance
-			near_target = enemy
-
-	new_bullet.target = near_target
+	return targets
