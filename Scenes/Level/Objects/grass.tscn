@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwu721kpj1tvh"]
+
+[ext_resource type="Script" path="res://Scenes/Level/Objects/grass.gd" id="1_3h630"]
+
+[node name="Grass" type="Sprite2D"]
+script = ExtResource("1_3h630")

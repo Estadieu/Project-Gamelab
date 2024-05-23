@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm8edo26xcgdk"]
+
+[ext_resource type="Script" path="res://Scenes/Home/home.gd" id="1_7yvqs"]
+[ext_resource type="Texture2D" uid="uid://bko6v1isv7tjd" path="res://Textures/Home/Background.png" id="1_cgeme"]
+[ext_resource type="FontFile" uid="uid://ctfaaculprqq7" path="res://Font/tenderness.otf" id="2_ai0ew"]
+[ext_resource type="PackedScene" uid="uid://2ngwgh2l2ncj" path="res://Scenes/Utility/button.tscn" id="3_wk50c"]
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7yvqs")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cgeme")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -463.0
+offset_top = -128.0
+offset_right = 463.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 56
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.337255, 0.0980392, 0.0117647, 1)
+theme_override_fonts/font = ExtResource("2_ai0ew")
+theme_override_font_sizes/font_size = 32
+text = "Nordic Resilience: A French Erasmus Journey"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Play" parent="VBoxContainer/VBoxContainer" instance=ExtResource("3_wk50c")]
+layout_mode = 2
+text = "Play"
+
+[node name="Exit" parent="VBoxContainer/VBoxContainer" instance=ExtResource("3_wk50c")]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="clicked" from="VBoxContainer/VBoxContainer/Play" to="." method="_on_play_clicked"]
+[connection signal="clicked" from="VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_clicked"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx3ksamrbr1jm"]
+
+[ext_resource type="PackedScene" uid="uid://r8ab156t7bft" path="res://Scenes/Level/Objects/Rock/rock.tscn" id="1_5ch5t"]
+[ext_resource type="Texture2D" uid="uid://33jjkrpckkxq" path="res://Textures/Level/Map/Rock/2.png" id="2_ul1hw"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qgmex"]
+cull_mode = 2
+polygon = PackedVector2Array(-2.667, -0.5, 0, -2.66667, 1.33333, -2.66667, 2.66667, -0.666667, 1.33333, 0.666667, -1.33333, 0.666667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekbdi"]
+size = Vector2(8, 4)
+
+[node name="Rock" instance=ExtResource("1_5ch5t")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -1)
+texture = ExtResource("2_ul1hw")
+
+[node name="LightOccluder2D" parent="." index="1"]
+occluder = SubResource("OccluderPolygon2D_qgmex")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_ekbdi")

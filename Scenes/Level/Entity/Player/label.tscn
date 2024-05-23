@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://rlh8kg7v6mgj"]
+
+[ext_resource type="FontFile" uid="uid://ctfaaculprqq7" path="res://Font/tenderness.otf" id="1_11epa"]
+
+[node name="Label" type="Label"]
+theme_override_fonts/font = ExtResource("1_11epa")
+theme_override_font_sizes/font_size = 10
+text = "Damages"

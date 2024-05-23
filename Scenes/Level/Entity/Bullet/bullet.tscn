@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d37oo4vu2xxy0"]
+
+[ext_resource type="PackedScene" uid="uid://dcclxbjbmuore" path="res://Scenes/Level/Entity/entity.tscn" id="1_pwe3n"]
+[ext_resource type="Script" path="res://Scenes/Level/Entity/Bullet/bullet.gd" id="2_y1jjy"]
+
+[node name="Bullet" groups=["bullet"] instance=ExtResource("1_pwe3n")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_y1jjy")
+damage = 10.0
+enemy_group = "enemy"
+max_hp = 1
+
+[node name="HealthBar" parent="." index="3"]
+visible = false
+
+[node name="HurtBox" parent="." index="4"]
+collision_mask = 17
+
+[node name="HitBox" parent="." index="5" groups=["attack_hitbox"]]
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurted_by_objects"]

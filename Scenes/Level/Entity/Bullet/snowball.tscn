@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://gns8q4k3hjha"]
+
+[ext_resource type="PackedScene" uid="uid://d37oo4vu2xxy0" path="res://Scenes/Level/Entity/Bullet/bullet.tscn" id="1_excvj"]
+[ext_resource type="Texture2D" uid="uid://wlqfxlry7jwd" path="res://Textures/Level/Store/snowball.png" id="2_qokmu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wdsrq"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rfgbm"]
+radius = 12.2066
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0scbi"]
+radius = 12.0416
+
+[node name="SnowBall" instance=ExtResource("1_excvj")]
+speed = 16.0
+damage = 20.0
+max_hp = 5
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -2)
+texture = ExtResource("2_qokmu")
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = -0.785398
+shape = SubResource("CircleShape2D_wdsrq")
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_rfgbm")
+
+[node name="HitBox" parent="." index="5"]
+visible = false
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_0scbi")

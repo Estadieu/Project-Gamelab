@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://bro1o8mstekxh"]
+
+[ext_resource type="PackedScene" uid="uid://cqnn5ru0aggr1" path="res://Scenes/Level/Entity/Enemy/enemy.tscn" id="1_5h7lj"]
+[ext_resource type="Script" path="res://Scenes/Level/Entity/Enemy/polarbear.gd" id="2_ymc40"]
+[ext_resource type="Texture2D" uid="uid://dyph2pqu8ojhl" path="res://Textures/Level/Enemy/polar_bear.png" id="3_avqyy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1obc2"]
+size = Vector2(46, 11.5)
+
+[sub_resource type="Animation" id="Animation_1fvai"]
+resource_name = "walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rxb8w"]
+_data = {
+"walk": SubResource("Animation_1fvai")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d6na"]
+size = Vector2(51, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80bk6"]
+size = Vector2(51, 16)
+
+[node name="PolarBear" instance=ExtResource("1_5h7lj")]
+script = ExtResource("2_ymc40")
+gain = 10
+damage = 10.0
+max_hp = 20
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(8.47033e-22, -35)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_avqyy")
+hframes = 10
+vframes = 8
+frame = 12
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_1obc2")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_rxb8w")
+}
+
+[node name="HealthBar" parent="." index="3"]
+offset_top = -30.0
+offset_bottom = -29.0
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_4d6na")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_80bk6")

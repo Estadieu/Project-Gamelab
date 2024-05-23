@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkbgr4ijg3c15"]
+
+[ext_resource type="PackedScene" uid="uid://djcqlylw6u4ia" path="res://Scenes/Level/Store/Item.tscn" id="1_nu86a"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Weapon.gd" id="2_04u0b"]
+
+[node name="Weapon" instance=ExtResource("1_nu86a")]
+script = ExtResource("2_04u0b")
+bullet = null
+base_ammo = 0
+base_cooldown = 1.0
+base_stats = {}
+
+[node name="BurstTimer" type="Timer" parent="." index="0"]
+wait_time = 2.0
+autostart = true
+
+[node name="ShotTimer" type="Timer" parent="." index="1"]
+wait_time = 0.5
+
+[connection signal="timeout" from="BurstTimer" to="." method="_on_burst_start"]
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_start"]

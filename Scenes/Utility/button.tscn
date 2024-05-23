@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://2ngwgh2l2ncj"]
+
+[ext_resource type="Script" path="res://Scenes/Utility/button.gd" id="1_4cuwv"]
+[ext_resource type="AudioStream" uid="uid://hewygp2uvhov" path="res://Audio/Utility/button_hover.wav" id="2_1vr1v"]
+[ext_resource type="AudioStream" uid="uid://dnh5yh2qtuvgj" path="res://Audio/Utility/button_click.wav" id="3_xhabt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7ml2"]
+bg_color = Color(0.337255, 0.0980392, 0.0117647, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbo1m"]
+bg_color = Color(0.337255, 0.0980392, 0.0117647, 0.741176)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3eun"]
+bg_color = Color(0.337255, 0.0980392, 0.0117647, 0.258824)
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(100, 30)
+offset_right = 80.0
+offset_bottom = 30.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_x7ml2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kbo1m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g3eun")
+text = "Example"
+script = ExtResource("1_4cuwv")
+
+[node name="SndHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1vr1v")
+
+[node name="SndClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xhabt")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="finished" from="SndClick" to="." method="_on_snd_click_finished"]

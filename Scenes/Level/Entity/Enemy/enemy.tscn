@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqnn5ru0aggr1"]
+
+[ext_resource type="PackedScene" uid="uid://dcclxbjbmuore" path="res://Scenes/Level/Entity/entity.tscn" id="1_ddvvo"]
+[ext_resource type="Script" path="res://Scenes/Level/Entity/Enemy/enemy.gd" id="2_6fsmg"]
+
+[node name="Enemy" groups=["enemy"] instance=ExtResource("1_ddvvo")]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("2_6fsmg")
+gain = 1
+damage = 1.0
+enemy_group = "bullet"
+
+[node name="HealthBar" parent="." index="3"]
+visible = false

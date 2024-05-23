@@ -1,0 +1,465 @@
+[gd_scene load_steps=57 format=3 uid="uid://c2722djo76w48"]
+
+[ext_resource type="Script" path="res://Scenes/Level/level.gd" id="1_8dmk7"]
+[ext_resource type="AudioStream" uid="uid://xlfyythf285j" path="res://Audio/Level/snd_background.mp3" id="1_qajg2"]
+[ext_resource type="Texture2D" uid="uid://c8iwsyx44sl8e" path="res://Textures/Level/background.png" id="3_hj5mb"]
+[ext_resource type="PackedScene" uid="uid://dmdjqfw8ge8mn" path="res://Scenes/Level/Entity/Player/player.tscn" id="4_ohwb5"]
+[ext_resource type="Script" path="res://Scenes/Level/Map/WaterSpawner.gd" id="5_75q3e"]
+[ext_resource type="Script" path="res://Scenes/Level/Map/ObjectsSpawner.gd" id="5_shbtf"]
+[ext_resource type="Texture2D" uid="uid://p4uedixugl3m" path="res://Textures/Level/Map/neutral_point_light.webp" id="5_xih61"]
+[ext_resource type="Script" path="res://Scenes/Level/Map/EnemySpawner.gd" id="6_buegs"]
+[ext_resource type="Script" path="res://Scenes/Level/Utility/spawn_info.gd" id="7_8ofm2"]
+[ext_resource type="PackedScene" uid="uid://br5mc50blfcah" path="res://Scenes/Level/Entity/Enemy/reindeer.tscn" id="7_hvb1q"]
+[ext_resource type="PackedScene" uid="uid://dpufsaa3ciflg" path="res://Scenes/Level/Entity/Enemy/eagle.tscn" id="8_127rb"]
+[ext_resource type="PackedScene" uid="uid://bro1o8mstekxh" path="res://Scenes/Level/Entity/Enemy/polarbear.tscn" id="8_ct2ot"]
+[ext_resource type="PackedScene" uid="uid://2k5j8m7ei1u" path="res://Scenes/Level/Entity/Enemy/fox.tscn" id="8_udhcx"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Store.gd" id="10_4ftlj"]
+[ext_resource type="PackedScene" uid="uid://6os28fy0kp78" path="res://Scenes/Level/GUI/pause_panel.tscn" id="10_wmkmg"]
+[ext_resource type="PackedScene" uid="uid://dkbgr4ijg3c15" path="res://Scenes/Level/Store/Weapon.tscn" id="11_jdx5s"]
+[ext_resource type="PackedScene" uid="uid://2ngwgh2l2ncj" path="res://Scenes/Utility/button.tscn" id="11_nndkw"]
+[ext_resource type="Texture2D" uid="uid://3d6lb2hjfl2o" path="res://Textures/Level/Store/ice_spear.png" id="12_butcc"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Items/IceSpear.gd" id="12_y0x2j"]
+[ext_resource type="PackedScene" uid="uid://gns8q4k3hjha" path="res://Scenes/Level/Entity/Bullet/snowball.tscn" id="13_mnnk5"]
+[ext_resource type="PackedScene" uid="uid://g0cnchlg7on" path="res://Scenes/Level/Entity/Bullet/ice_spear.tscn" id="13_nbryd"]
+[ext_resource type="PackedScene" uid="uid://bn23p23ckhmr2" path="res://Scenes/Level/Entity/Enemy/plane.tscn" id="13_yp5pf"]
+[ext_resource type="FontFile" uid="uid://ctfaaculprqq7" path="res://Font/tenderness.otf" id="14_f2kub"]
+[ext_resource type="Script" path="res://Scenes/Level/GUI/GUI.gd" id="14_sjusd"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Items/SnowBall.gd" id="15_lap14"]
+[ext_resource type="Script" path="res://Scenes/Level/GUI/Date.gd" id="15_vkvoq"]
+[ext_resource type="Texture2D" uid="uid://wlqfxlry7jwd" path="res://Textures/Level/Store/snowball.png" id="17_pkxw4"]
+[ext_resource type="PackedScene" uid="uid://djcqlylw6u4ia" path="res://Scenes/Level/Store/Item.tscn" id="18_6piua"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Items/Baguette.gd" id="18_ef1n1"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Items/Boots.gd" id="19_han10"]
+[ext_resource type="PackedScene" uid="uid://b3iyghrpftdj7" path="res://Scenes/Level/Entity/Bullet/baguette.tscn" id="19_t1exu"]
+[ext_resource type="Texture2D" uid="uid://bvy7inhrwbkhb" path="res://Textures/Level/Store/baguette.png" id="20_k1yxo"]
+[ext_resource type="Texture2D" uid="uid://dd0uo7o5db1ue" path="res://Textures/Level/Store/boots.png" id="20_yvgw0"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Items/Tome.gd" id="21_5t5oe"]
+[ext_resource type="Texture2D" uid="uid://coxdeun177wf" path="res://Textures/Level/Store/tome.png" id="22_ryknh"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Items/Armor.gd" id="23_16i01"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Items/Scroll.gd" id="24_6yvpq"]
+[ext_resource type="Texture2D" uid="uid://bd3hrk156mlko" path="res://Textures/Level/Store/armor.png" id="24_cmwy2"]
+[ext_resource type="Texture2D" uid="uid://bogys0bjco2f8" path="res://Textures/Level/Store/scroll.png" id="26_2xhuo"]
+[ext_resource type="Script" path="res://Scenes/Level/Store/Items/Ring.gd" id="27_66lq8"]
+[ext_resource type="Texture2D" uid="uid://bhr15skvgtcu1" path="res://Textures/Level/Store/ring.png" id="28_q82ar"]
+[ext_resource type="Texture2D" uid="uid://cd1h6w2kcmq6i" path="res://Textures/Level/Store/store.png" id="35_hcafw"]
+[ext_resource type="Script" path="res://Scenes/Level/GUI/ResultPanel.gd" id="38_j7rss"]
+[ext_resource type="AudioStream" uid="uid://np567cmhtp6r" path="res://Audio/Level/snd_victory.wav" id="39_37eyd"]
+[ext_resource type="AudioStream" uid="uid://ce24536bkbglh" path="res://Audio/Level/snd_lose.ogg" id="40_2u53f"]
+
+[sub_resource type="Resource" id="Resource_rdxaw"]
+script = ExtResource("7_8ofm2")
+time_start = 0
+time_end = 30
+enemy = ExtResource("7_hvb1q")
+enemy_num = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_wyqeo"]
+script = ExtResource("7_8ofm2")
+time_start = 30
+time_end = 210
+enemy = ExtResource("7_hvb1q")
+enemy_num = 2
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_3bsux"]
+script = ExtResource("7_8ofm2")
+time_start = 60
+time_end = 80
+enemy = ExtResource("8_ct2ot")
+enemy_num = 2
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_qu7q0"]
+script = ExtResource("7_8ofm2")
+time_start = 180
+time_end = 210
+enemy = ExtResource("8_udhcx")
+enemy_num = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_noptp"]
+script = ExtResource("7_8ofm2")
+time_start = 210
+time_end = 240
+enemy = ExtResource("8_ct2ot")
+enemy_num = 2
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_mv1cu"]
+script = ExtResource("7_8ofm2")
+time_start = 240
+time_end = 300
+enemy = ExtResource("8_udhcx")
+enemy_num = 2
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_586h5"]
+script = ExtResource("7_8ofm2")
+time_start = 240
+time_end = 280
+enemy = ExtResource("8_127rb")
+enemy_num = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_qvleb"]
+script = ExtResource("7_8ofm2")
+time_start = 270
+time_end = 300
+enemy = ExtResource("8_ct2ot")
+enemy_num = 4
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_7d5aq"]
+script = ExtResource("7_8ofm2")
+time_start = 300
+time_end = 300
+enemy = ExtResource("13_yp5pf")
+enemy_num = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="InputEventKey" id="InputEventKey_metmr"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_ibq8p"]
+device = -1
+keycode = 69
+unicode = 101
+
+[node name="Level" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_8dmk7")
+
+[node name="SndBackground" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("1_qajg2")
+autoplay = true
+
+[node name="Map" type="Sprite2D" parent="."]
+process_mode = 1
+z_index = -2
+texture_repeat = 2
+texture = ExtResource("3_hj5mb")
+region_enabled = true
+region_rect = Rect2(0, 0, 4000, 4000)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Map"]
+color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[node name="SortLayer" type="Node2D" parent="Map" groups=["map"]]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Player" parent="Map/SortLayer" instance=ExtResource("4_ohwb5")]
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/SortLayer/Player"]
+scale = Vector2(1.5, 1.5)
+color = Color(0.6, 0.6, 0.6, 1)
+range_item_cull_mask = 5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
+shadow_filter_smooth = 5.0
+shadow_item_cull_mask = 0
+texture = ExtResource("5_xih61")
+
+[node name="ShadowLight2D" type="PointLight2D" parent="Map/SortLayer/Player"]
+scale = Vector2(1.5, 1.5)
+color = Color(0.6, 0.6, 0.6, 1)
+energy = 0.25
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
+shadow_filter_smooth = 5.0
+shadow_item_cull_mask = 2
+texture = ExtResource("5_xih61")
+
+[node name="WaterSpawner" type="Node2D" parent="Map/SortLayer"]
+z_index = -1
+script = ExtResource("5_75q3e")
+
+[node name="ObjectsSpawner" type="Node2D" parent="Map/SortLayer"]
+z_index = -1
+script = ExtResource("5_shbtf")
+
+[node name="EnemySpawner" type="Node2D" parent="Map/SortLayer"]
+z_index = -1
+script = ExtResource("6_buegs")
+spawns = Array[ExtResource("7_8ofm2")]([SubResource("Resource_rdxaw"), SubResource("Resource_wyqeo"), SubResource("Resource_3bsux"), SubResource("Resource_qu7q0"), SubResource("Resource_noptp"), SubResource("Resource_mv1cu"), SubResource("Resource_586h5"), SubResource("Resource_qvleb"), SubResource("Resource_7d5aq")])
+
+[node name="Store" type="Node2D" parent="."]
+process_mode = 1
+script = ExtResource("10_4ftlj")
+
+[node name="IceSpear" parent="Store" node_paths=PackedStringArray("map") instance=ExtResource("11_jdx5s")]
+script = ExtResource("12_y0x2j")
+bullet = ExtResource("13_nbryd")
+map = NodePath("../../Map/SortLayer")
+base_cooldown = 2.0
+base_stats = {
+"damage": 10,
+"max_hp": 5,
+"speed": 64
+}
+icon = ExtResource("12_butcc")
+displayname = "Ice Spear"
+max_level = 4
+
+[node name="SnowBall" parent="Store" node_paths=PackedStringArray("map") instance=ExtResource("11_jdx5s")]
+script = ExtResource("15_lap14")
+bullet = ExtResource("13_mnnk5")
+map = NodePath("../../Map/SortLayer")
+base_cooldown = 3.0
+base_stats = {
+"damage": 20,
+"max_hp": 30,
+"speed": 96
+}
+icon = ExtResource("17_pkxw4")
+displayname = "Snow ball"
+max_level = 5
+
+[node name="Baguette" parent="Store" node_paths=PackedStringArray("map") instance=ExtResource("11_jdx5s")]
+script = ExtResource("18_ef1n1")
+paths = 1
+bullet = ExtResource("19_t1exu")
+map = NodePath("../../Map/SortLayer")
+base_cooldown = 5.0
+base_stats = {
+"damage": 10
+}
+icon = ExtResource("20_k1yxo")
+displayname = "Baguette"
+max_level = 5
+
+[node name="PathTimer" type="Timer" parent="Store/Baguette"]
+wait_time = 1.5
+
+[node name="Ring" parent="Store" instance=ExtResource("18_6piua")]
+script = ExtResource("27_66lq8")
+icon = ExtResource("28_q82ar")
+displayname = "Ring"
+max_level = 5
+
+[node name="Boots" parent="Store" instance=ExtResource("18_6piua")]
+script = ExtResource("19_han10")
+icon = ExtResource("20_yvgw0")
+displayname = "Boots"
+max_level = 7
+
+[node name="Scroll" parent="Store" instance=ExtResource("18_6piua")]
+script = ExtResource("24_6yvpq")
+icon = ExtResource("26_2xhuo")
+displayname = "Scroll"
+max_level = 10
+
+[node name="Tome" parent="Store" instance=ExtResource("18_6piua")]
+script = ExtResource("21_5t5oe")
+icon = ExtResource("22_ryknh")
+displayname = "Tome"
+max_level = 10
+
+[node name="Armor" parent="Store" instance=ExtResource("18_6piua")]
+script = ExtResource("23_16i01")
+icon = ExtResource("24_cmwy2")
+displayname = "Armor"
+max_level = 10
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 1
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="GUILayer" node_paths=PackedStringArray("store")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_sjusd")
+store = NodePath("../../Store")
+
+[node name="Date" type="Label" parent="GUILayer/GUI"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_right = 45.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_f2kub")
+text = "1 september"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("15_vkvoq")
+
+[node name="Story" type="Label" parent="GUILayer/GUI/Date"]
+custom_minimum_size = Vector2(400, 20)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_f2kub")
+theme_override_font_sizes/font_size = 25
+text = "Example"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coins" type="Label" parent="GUILayer/GUI"]
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 1
+offset_right = 34.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_f2kub")
+text = "0 nok"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StoreShorts" type="Control" parent="GUILayer/GUI"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/StoreShorts"]
+texture_repeat = 2
+position = Vector2(320, 32)
+texture = ExtResource("35_hcafw")
+region_enabled = true
+region_rect = Rect2(0, 0, 356, 48)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GUILayer/GUI/StoreShorts"]
+custom_minimum_size = Vector2(348, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -20.0
+offset_right = 174.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PausePanel" parent="GUILayer/GUI" instance=ExtResource("10_wmkmg")]
+layout_mode = 1
+open_input = SubResource("InputEventKey_metmr")
+
+[node name="CenterContainer" type="CenterContainer" parent="GUILayer/GUI/PausePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FlowContainer" type="FlowContainer" parent="GUILayer/GUI/PausePanel/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Resume" parent="GUILayer/GUI/PausePanel/CenterContainer/FlowContainer" instance=ExtResource("11_nndkw")]
+layout_mode = 2
+text = "Resume"
+
+[node name="Restart" parent="GUILayer/GUI/PausePanel/CenterContainer/FlowContainer" instance=ExtResource("11_nndkw")]
+layout_mode = 2
+text = "Restart"
+
+[node name="Exit" parent="GUILayer/GUI/PausePanel/CenterContainer/FlowContainer" instance=ExtResource("11_nndkw")]
+layout_mode = 2
+text = "Exit"
+
+[node name="StorePanel" parent="GUILayer/GUI" instance=ExtResource("10_wmkmg")]
+layout_mode = 1
+open_input = SubResource("InputEventKey_ibq8p")
+
+[node name="CenterContainer" type="CenterContainer" parent="GUILayer/GUI/StorePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FlowContainer" type="FlowContainer" parent="GUILayer/GUI/StorePanel/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResultPanel" type="Panel" parent="GUILayer/GUI"]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("38_j7rss")
+
+[node name="CenterContainer" type="CenterContainer" parent="GUILayer/GUI/ResultPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FlowContainer" type="FlowContainer" parent="GUILayer/GUI/ResultPanel/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Results" type="Label" parent="GUILayer/GUI/ResultPanel/CenterContainer/FlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("14_f2kub")
+theme_override_font_sizes/font_size = 70
+text = "You win !!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" parent="GUILayer/GUI/ResultPanel/CenterContainer/FlowContainer" instance=ExtResource("11_nndkw")]
+layout_mode = 2
+text = "Restart"
+
+[node name="Exit" parent="GUILayer/GUI/ResultPanel/CenterContainer/FlowContainer" instance=ExtResource("11_nndkw")]
+layout_mode = 2
+text = "Exit"
+
+[node name="SndVictory" type="AudioStreamPlayer" parent="GUILayer/GUI/ResultPanel"]
+stream = ExtResource("39_37eyd")
+
+[node name="SndLose" type="AudioStreamPlayer" parent="GUILayer/GUI/ResultPanel"]
+stream = ExtResource("40_2u53f")
+
+[connection signal="time_updated" from="." to="Map/SortLayer/EnemySpawner" method="_on_time_updated"]
+[connection signal="time_updated" from="." to="GUILayer/GUI/Date" method="_on_time_updated"]
+[connection signal="coins_updated" from="Map/SortLayer/Player" to="." method="_on_coins_updated"]
+[connection signal="coins_updated" from="Map/SortLayer/Player" to="Store" method="_on_coins_updated"]
+[connection signal="die" from="Map/SortLayer/Player" to="." method="_on_game_end"]
+[connection signal="timeout" from="Store/Baguette/PathTimer" to="Store/Baguette" method="_on_path_end"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="clicked" from="GUILayer/GUI/PausePanel/CenterContainer/FlowContainer/Resume" to="GUILayer/GUI/PausePanel" method="_on_btn_resume_click_end"]
+[connection signal="clicked" from="GUILayer/GUI/PausePanel/CenterContainer/FlowContainer/Restart" to="GUILayer/GUI/PausePanel" method="_on_btn_restart_click_end"]
+[connection signal="clicked" from="GUILayer/GUI/PausePanel/CenterContainer/FlowContainer/Exit" to="GUILayer/GUI/PausePanel" method="_on_btn_exit_click_end"]
+[connection signal="clicked" from="GUILayer/GUI/ResultPanel/CenterContainer/FlowContainer/Restart" to="GUILayer/GUI/ResultPanel" method="_on_btn_restart_click_end"]
+[connection signal="clicked" from="GUILayer/GUI/ResultPanel/CenterContainer/FlowContainer/Exit" to="GUILayer/GUI/ResultPanel" method="_on_btn_exit_click_end"]

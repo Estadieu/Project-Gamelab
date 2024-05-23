@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1axfx0fns7fp"]
+
+[ext_resource type="Script" path="res://Scenes/Level/Objects/coin.gd" id="1_k2xes"]
+[ext_resource type="Texture2D" uid="uid://choj33cbkfl0h" path="res://Textures/Level/Coins/bronze.png" id="2_b6xgh"]
+[ext_resource type="AudioStream" uid="uid://cdellenuk4axl" path="res://Audio/Level/snd_collect.mp3" id="3_7sevn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wytta"]
+size = Vector2(20, 22)
+
+[node name="Coin" type="Area2D" groups=["loot"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_k2xes")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_b6xgh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_wytta")
+
+[node name="SndCollected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7sevn")
+volume_db = 10.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="finished" from="SndCollected" to="." method="_on_snd_collected_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_snd_collected_finished"]

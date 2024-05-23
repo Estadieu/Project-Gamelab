@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://2k5j8m7ei1u"]
+
+[ext_resource type="PackedScene" uid="uid://cqnn5ru0aggr1" path="res://Scenes/Level/Entity/Enemy/enemy.tscn" id="1_7w32n"]
+[ext_resource type="Texture2D" uid="uid://bts28jtxcf4o6" path="res://Textures/Level/Enemy/fox.png" id="2_6ivd7"]
+[ext_resource type="Script" path="res://Scenes/Level/Entity/Enemy/fox.gd" id="2_7wduj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atulp"]
+size = Vector2(34, 8)
+
+[sub_resource type="Animation" id="Animation_0km6s"]
+resource_name = "walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4uhu"]
+_data = {
+"walk": SubResource("Animation_0km6s")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2tgi"]
+size = Vector2(40, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44xw3"]
+size = Vector2(40, 14)
+
+[node name="Fox" instance=ExtResource("1_7w32n")]
+script = ExtResource("2_7wduj")
+speed = 50.0
+damage = 5.0
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(3.55271e-15, -34)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_6ivd7")
+hframes = 6
+vframes = 6
+frame = 6
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_atulp")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_h4uhu")
+}
+
+[node name="HealthBar" parent="." index="3"]
+offset_top = -25.0
+offset_bottom = -24.0
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_h2tgi")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("RectangleShape2D_44xw3")
