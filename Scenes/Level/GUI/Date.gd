@@ -11,7 +11,7 @@ const stories = {
 	"20":"and the danger is increasing day by day.",
 	"25": "",
 	"190": "Wow foxes they are so fast",
-	"210": "It's really black, I can't see anything anymore",
+	"210": "It's really dark, I can't see anything anymore",
 	"245": "",
 }
 

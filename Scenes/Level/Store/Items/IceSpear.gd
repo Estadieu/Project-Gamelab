@@ -24,8 +24,8 @@ func _init():
 func sort_closest(a, b): 
 	return player.global_position.distance_to(a.global_position) <= player.global_position.distance_to(b.global_position)
 
-func get_targets(count):
-	var targets = player.get_targets()
-	targets.sort_custom(sort_closest)
+func get_targets(_count):
+	var result = player.get_targets()
+	result.sort_custom(sort_closest)
 
-	return targets
+	return result

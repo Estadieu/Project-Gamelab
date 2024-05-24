@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1axfx0fns7fp"]
 
 [ext_resource type="Script" path="res://Scenes/Level/Objects/coin.gd" id="1_k2xes"]
-[ext_resource type="Texture2D" uid="uid://cuvfdscl0tg4g" path="res://Textures/Level/Coins/bronze.png" id="2_b6xgh"]
-[ext_resource type="AudioStream" uid="uid://ck7a5ordl0cak" path="res://Audio/Level/snd_collect.mp3" id="3_7sevn"]
+[ext_resource type="Texture2D" uid="uid://choj33cbkfl0h" path="res://Textures/Level/Coins/bronze.png" id="2_b6xgh"]
+[ext_resource type="AudioStream" uid="uid://cdellenuk4axl" path="res://Audio/Level/snd_collect.mp3" id="3_7sevn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wytta"]
 size = Vector2(20, 22)

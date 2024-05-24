@@ -37,16 +37,15 @@ radius = 13.0
 [node name="Eagle" instance=ExtResource("1_rmo7n")]
 collision_mask = 0
 script = ExtResource("2_uaa3n")
-speed = 20.0
+gain = 50
+speed = 64.0
 damage = 20.0
 max_hp = 100
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-9, -90)
-scale = Vector2(2, 2)
+position = Vector2(-7, -33)
 texture = ExtResource("2_hl45v")
 hframes = 4
-frame = 2
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_f18pf")
@@ -57,8 +56,10 @@ libraries = {
 }
 
 [node name="HealthBar" parent="." index="3"]
-offset_top = -103.0
-offset_bottom = -102.0
+offset_left = -10.0
+offset_top = -47.0
+offset_right = 30.0
+offset_bottom = -43.0
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("CircleShape2D_kjro3")

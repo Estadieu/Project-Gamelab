@@ -1,7 +1,5 @@
 extends Node2D
 
-# TODO: Start timers when lvl 1 weapons / No enemies
-
 @onready var tree = get_tree()
 
 @onready var PausePanel = $GUILayer/GUI/PausePanel
@@ -12,9 +10,16 @@ extends Node2D
 	set(value):
 		time = value
 		
-		var component = 1.0 - time / 270.0
-		$Map/CanvasModulate.color = Color(component, component, component)
-		$Map/SortLayer/Player/PointLight2D .energy = 1.0 - component
+		if time <= 270:
+			var component = 1.0 - time / 270.0
+			$Map/CanvasModulate.color = Color(component, component, component)
+			$Map/SortLayer/Player/PointLight2D .energy = 1.0 - component
+	
+		else:
+			$Map/SortLayer/Player/PointLight2D .energy = max(1.0 - (time - 270.0) / 30.0, 0.1)
+	
+		if time > 300:
+			$Map/SortLayer/Player.hp = 0
 	
 		emit_signal("time_updated", time)
 		$Timer.start()

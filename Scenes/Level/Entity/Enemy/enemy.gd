@@ -27,3 +27,8 @@ func death():
 	map.call_deferred("add_child", new_coin)
 
 	super.death()
+
+	
+func set_animation(direction):
+	$AnimationPlayer.play("walk")
+	$Sprite2D.flip_h = (direction.x == 0 && $Sprite2D.flip_h) || (direction.x < 0)

@@ -17,9 +17,9 @@ func _init():
 
 
 func get_targets(count):
-	var targets = []
+	var result = []
 	
 	for _i in range(count):
-		targets.append(player.global_position + player.last_movement)
+		result.append(player.global_position + player.last_movement)
 
-	return targets
+	return result

@@ -31,6 +31,8 @@ func _init():
 func _on_burst_end():
 	remaining_paths = paths - 1
 	
+	$BurstTimer.stop()
+	$ShotTimer.stop()
 	$PathTimer.start()
 	
 func _on_path_end():
@@ -46,15 +48,15 @@ func _on_path_end():
 
 	remaining_paths -= 1
 
-	var targets = player.get_targets()
+	var result = player.get_targets()
 
 	for baguette in baguettes:
-		baguette.target = targets.pick_random()
+		baguette.target = result.pick_random()
 		
 	$PathTimer.start()
 
-func get_targets(count):
-	var targets = player.get_targets()
-	targets.shuffle()
+func get_targets(_count):
+	var result = player.get_targets()
+	result.shuffle()
 	
-	return targets
+	return result

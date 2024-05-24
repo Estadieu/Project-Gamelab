@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://br5mc50blfcah"]
+[gd_scene load_steps=10 format=3 uid="uid://br5mc50blfcah"]
 
 [ext_resource type="PackedScene" uid="uid://cqnn5ru0aggr1" path="res://Scenes/Level/Entity/Enemy/enemy.tscn" id="1_ultay"]
-[ext_resource type="Texture2D" uid="uid://bweahq2kbsdqs" path="res://Textures/Level/Enemy/rein_deer.png" id="2_04veb"]
-[ext_resource type="Script" path="res://Scenes/Level/Entity/Enemy/reindeer.gd" id="2_ao16j"]
+[ext_resource type="Texture2D" uid="uid://cw6ybeltpjcbn" path="res://Textures/Level/Enemy/rein_deer.png" id="2_04veb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itnon"]
 size = Vector2(36, 14)
@@ -56,7 +55,6 @@ size = Vector2(42, 20)
 size = Vector2(42, 20)
 
 [node name="Reindeer" instance=ExtResource("1_ultay")]
-script = ExtResource("2_ao16j")
 gain = 5
 speed = 30.0
 damage = 5.0
@@ -67,7 +65,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_04veb")
 hframes = 7
 vframes = 7
-frame = 8
+frame = 7
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_itnon")

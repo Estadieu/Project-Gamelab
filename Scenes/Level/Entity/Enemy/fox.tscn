@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://2k5j8m7ei1u"]
+[gd_scene load_steps=8 format=3 uid="uid://2k5j8m7ei1u"]
 
 [ext_resource type="PackedScene" uid="uid://cqnn5ru0aggr1" path="res://Scenes/Level/Entity/Enemy/enemy.tscn" id="1_7w32n"]
-[ext_resource type="Texture2D" uid="uid://dpm24wwagc7wg" path="res://Textures/Level/Enemy/fox.png" id="2_6ivd7"]
-[ext_resource type="Script" path="res://Scenes/Level/Entity/Enemy/fox.gd" id="2_7wduj"]
+[ext_resource type="Texture2D" uid="uid://bts28jtxcf4o6" path="res://Textures/Level/Enemy/fox.png" id="2_6ivd7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atulp"]
 size = Vector2(34, 8)
@@ -36,10 +35,9 @@ size = Vector2(40, 14)
 size = Vector2(40, 14)
 
 [node name="Fox" instance=ExtResource("1_7w32n")]
-script = ExtResource("2_7wduj")
-gain = 3
-speed = 80.0
-damage = 5.0
+gain = 25
+speed = 100.0
+damage = 10.0
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(3.55271e-15, -34)
@@ -58,8 +56,10 @@ libraries = {
 }
 
 [node name="HealthBar" parent="." index="3"]
-offset_top = -25.0
-offset_bottom = -24.0
+offset_left = -10.0
+offset_top = -29.0
+offset_right = 30.0
+offset_bottom = -25.0
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("RectangleShape2D_h2tgi")

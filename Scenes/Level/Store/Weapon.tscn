@@ -15,7 +15,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="ShotTimer" type="Timer" parent="." index="1"]
-wait_time = 0.5
+wait_time = 0.25
 
 [connection signal="timeout" from="BurstTimer" to="." method="_on_burst_start"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_start"]

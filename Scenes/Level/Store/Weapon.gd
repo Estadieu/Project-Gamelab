@@ -50,8 +50,8 @@ func _on_burst_end():
 	$ShotTimer.stop()
 	$BurstTimer.start()
 
-
 func _on_shot_start():
+	# Pass dead enemies
 	while current_bullet < targets.size() && targets[current_bullet] == null:
 		current_bullet += 1
 	
@@ -70,4 +70,4 @@ func _on_shot_start():
 	else:
 		_on_burst_end()
 
-func get_targets(count): return []
+func get_targets(_count): return []
