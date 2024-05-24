@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm8edo26xcgdk"]
+[gd_scene load_steps=5 format=3 uid="uid://dcyka5e06knff"]
 
 [ext_resource type="Script" path="res://Scenes/Home/home.gd" id="1_7yvqs"]
-[ext_resource type="Texture2D" uid="uid://ukn2224n21yx" path="res://Textures/Home/Background.png" id="1_cgeme"]
-[ext_resource type="FontFile" uid="uid://tmhsyewmqxna" path="res://Font/tenderness.otf" id="2_ai0ew"]
+[ext_resource type="Texture2D" uid="uid://dfwxixj1c7pum" path="res://Textures/Home/Background.png" id="1_cgeme"]
+[ext_resource type="FontFile" uid="uid://x1t6enyi7pqp" path="res://Font/tenderness.otf" id="2_ai0ew"]
 [ext_resource type="PackedScene" uid="uid://2ngwgh2l2ncj" path="res://Scenes/Utility/button.tscn" id="3_wk50c"]
 
 [node name="Home" type="Control"]

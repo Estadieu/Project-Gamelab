@@ -12,11 +12,11 @@ func get_direction():
 	return global_position.direction_to(player.global_position)
 
 func _on_taking_damage(_damage):
-	$HealthBar.visible = true
+	healthBar.visible = true
 
 func death():
 	var enemy_death = death_animation.instantiate()
-	enemy_death.scale = $Sprite2D.scale
+	enemy_death.scale = sprite.scale
 	enemy_death.global_position = global_position
 
 	get_parent().call_deferred("add_child", enemy_death)
@@ -30,5 +30,5 @@ func death():
 
 	
 func set_animation(direction):
-	$AnimationPlayer.play("walk")
-	$Sprite2D.flip_h = (direction.x == 0 && $Sprite2D.flip_h) || (direction.x < 0)
+	animationPlayer.play("walk")
+	sprite.flip_h = (direction.x == 0 && sprite.flip_h) || (direction.x < 0)

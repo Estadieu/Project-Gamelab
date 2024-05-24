@@ -17,14 +17,22 @@ const knockback_amount   : float = 64
 @export var max_hp : int = 10 :
 	set(value):
 		max_hp = value
-		$HealthBar.max_value = value
+		
+		if healthBar != null:
+			healthBar.max_value = value
 
 var hp : int :
 	set(value):
 		hp = value
-		$HealthBar.value = value
+		healthBar.value = value
 		
 		if hp <= 0: death()
+
+@onready var animationPlayer = $AnimationPlayer
+@onready var sprite          = $Sprite2D
+@onready var healthBar       = $HealthBar
+@onready var hurtBox         = $HurtBox/CollisionShape2D
+@onready var hurtBoxTimer    = $HurtBox/DisableTimer
 
 func get_direction(): return null
 func set_animation(_direction): pass
@@ -60,13 +68,13 @@ func _on_hurted(area):
 		
 		_on_taking_damage(taken_damage)
 		
-		$HurtBox/CollisionShape2D.call_deferred("set", "disabled", true)
-		$HurtBox/DisableTimer.start()
+		hurtBox.call_deferred("set", "disabled", true)
+		hurtBoxTimer.start()
 
 func _on_taking_damage(_taken_damage): pass
 
 func _on_disable_hurt_box_timeout():
-	$HurtBox/CollisionShape2D.call_deferred("set", "disabled", false)
+	hurtBox.call_deferred("set", "disabled", false)
 
 
 func death():

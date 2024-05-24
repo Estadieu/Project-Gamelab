@@ -37,8 +37,8 @@ func get_direction():
 	return Vector2(x_mov, y_mov)
 	
 func set_animation(direction):
-	$AnimationPlayer.play("idle" if direction == Vector2.ZERO else "walk")
-	$Sprite2D.flip_h = (direction.x == 0 && $Sprite2D.flip_h) || (direction.x < 0)
+	animationPlayer.play("idle" if direction == Vector2.ZERO else "walk")
+	sprite.flip_h = (direction.x == 0 && sprite.flip_h) || (direction.x < 0)
 
 func _on_grabed(area):
 	area.target = self
