@@ -13,7 +13,7 @@ var speed = 1
 
 func _ready():
 	# Default bronze
-	if value < 20: return
+	if value < 15: return
 
 	# Else (silver or gold)
 	sprite.texture = silver if value < 50 else gold
