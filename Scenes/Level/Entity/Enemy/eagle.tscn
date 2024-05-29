@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpufsaa3ciflg"]
 
 [ext_resource type="PackedScene" uid="uid://cqnn5ru0aggr1" path="res://Scenes/Level/Entity/Enemy/enemy.tscn" id="1_rmo7n"]
-[ext_resource type="Texture2D" uid="uid://be4vjnuiyhq1t" path="res://Textures/Level/Enemy/eagle.png" id="2_hl45v"]
+[ext_resource type="Texture2D" uid="uid://dk84qnsi4gsb0" path="res://Textures/Level/Enemy/eagle.png" id="2_hl45v"]
 [ext_resource type="Script" path="res://Scenes/Level/Entity/Enemy/eagle.gd" id="2_uaa3n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f18pf"]

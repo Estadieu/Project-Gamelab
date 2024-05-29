@@ -237,10 +237,10 @@ icon = ExtResource("20_yvgw0")
 displayname = "Boots"
 max_level = 7
 
-[node name="Scroll" parent="Store" instance=ExtResource("18_6piua")]
+[node name="Hourglass" parent="Store" instance=ExtResource("18_6piua")]
 script = ExtResource("24_6yvpq")
 icon = ExtResource("26_2xhuo")
-displayname = "Scroll"
+displayname = "Hourglass"
 max_level = 10
 
 [node name="Tome" parent="Store" instance=ExtResource("18_6piua")]

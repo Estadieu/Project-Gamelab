@@ -14,13 +14,20 @@ func get_direction():
 func _on_taking_damage(_damage):
 	healthBar.visible = true
 
+func randomize_gain():
+	if randi() % 50 == 0:
+		return -20
+	return gain
+
 func death():
 	var enemy_death = death_animation.instantiate()
 	enemy_death.scale = sprite.scale
 	enemy_death.global_position = global_position
 
 	get_parent().call_deferred("add_child", enemy_death)
-
+	
+	# Randomly set gain to 0 with a low probability
+	gain = randomize_gain()
 	var new_coin = coin.instantiate()
 	new_coin.global_position = global_position
 	new_coin.value = gain
