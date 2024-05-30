@@ -2,6 +2,7 @@ extends Control
 
 @export var store : Node2D = null
 
+# Initializations
 var short   = preload("res://Scenes/Level/GUI/Items/item_shorts.tscn")
 var details = preload("res://Scenes/Level/GUI/Items/item_details.tscn")
 
@@ -14,13 +15,13 @@ func _ready():
 	var new_details
 	
 	for item in store.get_children():
-		# Shortcuts
+		# Adding Shortcuts (item in the in-game bar)
 		new_short = short.instantiate()
 		new_short.item = item
 		
 		storeShorts.add_child(new_short)
 
-		# Details
+		# Adding details (items in the paused store menu)
 		new_details = details.instantiate()
 		new_details.item = item
 
