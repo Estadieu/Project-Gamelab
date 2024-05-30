@@ -1,8 +1,10 @@
 extends Label
 
+# Constants defining the number of days in each month and the names of the months.
 const duration = [ 30, 31, 30, 31, 31 ]
 const months = [ "september", "october", "november", "december", "january" ]
 
+# Dictionary mapping specific times to story messages.
 const stories = {
 	"5": "Oh, a reindeer, it looks harmless",
 	"8": "It's an invasion, I have to run !!",
@@ -18,6 +20,7 @@ const stories = {
 func _ready():
 	$Story.text = ""
 
+# Function called when the time is updated.
 func _on_time_updated(time):
 	# Date
 	var month = floor(time / 60)
@@ -30,7 +33,7 @@ func _on_time_updated(time):
 
 	text = str(day) + " " + months[month]
 
-	# Story
+	# Check if there is a story associated with the current time.
 	if str(time) in stories:
 		var tween = create_tween()
 		tween.tween_property($Story, "modulate", Color(0, 0, 0, 0.0), 0.25)
