@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Story/story.gd" id="1_5lrgd"]
 [ext_resource type="PackedScene" uid="uid://2ngwgh2l2ncj" path="res://Scenes/Utility/button.tscn" id="1_exikt"]
-[ext_resource type="FontFile" uid="uid://ctfaaculprqq7" path="res://Font/tenderness.otf" id="2_niirr"]
+[ext_resource type="FontFile" uid="uid://dqdp1la40oinv" path="res://Font/tenderness.otf" id="2_niirr"]
 
 [node name="Story" type="Control"]
 layout_mode = 3
